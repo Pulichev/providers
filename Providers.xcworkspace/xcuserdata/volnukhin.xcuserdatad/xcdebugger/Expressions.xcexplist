@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ProvidersTableViewController.collectionView(_:numberOfItemsInSection:):ProvidersTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "providersViewModel.getCardsCount(in: section)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

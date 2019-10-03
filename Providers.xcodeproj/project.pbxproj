@@ -20,6 +20,8 @@
 		A7466D772345F0A700DA5227 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D762345F0A700DA5227 /* Provider.swift */; };
 		A7466D792345F0AE00DA5227 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D782345F0AE00DA5227 /* Card.swift */; };
 		A7466D7B2346096900DA5227 /* CardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D7A2346096900DA5227 /* CardsCollectionViewCell.swift */; };
+		A7466D7E2346138D00DA5227 /* ProvidersViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D7D2346138D00DA5227 /* ProvidersViewModelProtocol.swift */; };
+		A7466D8023462DF100DA5227 /* ProvidersStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D7F23462DF100DA5227 /* ProvidersStructure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		A7466D762345F0A700DA5227 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		A7466D782345F0AE00DA5227 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A7466D7A2346096900DA5227 /* CardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewCell.swift; sourceTree = "<group>"; };
+		A7466D7D2346138D00DA5227 /* ProvidersViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersViewModelProtocol.swift; sourceTree = "<group>"; };
+		A7466D7F23462DF100DA5227 /* ProvidersStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersStructure.swift; sourceTree = "<group>"; };
 		FA0EBB7FA8399740A1B8039D /* Pods_Providers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Providers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD89EBC172A275065B756352 /* Pods-Providers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Providers.debug.xcconfig"; path = "Target Support Files/Pods-Providers/Pods-Providers.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +144,7 @@
 			children = (
 				A7466D4C2345E16E00DA5227 /* AppDelegate.swift */,
 				A7466D4E2345E16E00DA5227 /* SceneDelegate.swift */,
+				A7466D7C2346135100DA5227 /* Protocols */,
 				A7466D652345E22100DA5227 /* ViewModels */,
 				A7466D632345E20500DA5227 /* Views */,
 				A7466D662345E22A00DA5227 /* Models */,
@@ -160,6 +165,7 @@
 			children = (
 				A7466D762345F0A700DA5227 /* Provider.swift */,
 				A7466D782345F0AE00DA5227 /* Card.swift */,
+				A7466D7F23462DF100DA5227 /* ProvidersStructure.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +185,14 @@
 				A7466D7A2346096900DA5227 /* CardsCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A7466D7C2346135100DA5227 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A7466D7D2346138D00DA5227 /* ProvidersViewModelProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,10 +311,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7466D8023462DF100DA5227 /* ProvidersStructure.swift in Sources */,
 				A7466D722345EC4C00DA5227 /* ProvidersTableViewCell.swift in Sources */,
 				A7466D6D2345EAD500DA5227 /* ProvidersTableViewController.swift in Sources */,
 				A7466D792345F0AE00DA5227 /* Card.swift in Sources */,
 				A7466D4D2345E16E00DA5227 /* AppDelegate.swift in Sources */,
+				A7466D7E2346138D00DA5227 /* ProvidersViewModelProtocol.swift in Sources */,
 				A7466D7B2346096900DA5227 /* CardsCollectionViewCell.swift in Sources */,
 				A7466D742345F01300DA5227 /* ProvidersViewModel.swift in Sources */,
 				A7466D772345F0A700DA5227 /* Provider.swift in Sources */,
