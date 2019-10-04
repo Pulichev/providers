@@ -26,7 +26,6 @@
 		A7466D86234741ED00DA5227 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D85234741ED00DA5227 /* NetworkServiceProtocol.swift */; };
 		A7466D88234756BB00DA5227 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D87234756BB00DA5227 /* Currency.swift */; };
 		A7466D8A234757C700DA5227 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D89234757C700DA5227 /* AppConstant.swift */; };
-		A7466D8E23479D5100DA5227 /* ImageDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D8D23479D5100DA5227 /* ImageDownloaderProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +50,6 @@
 		A7466D85234741ED00DA5227 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		A7466D87234756BB00DA5227 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		A7466D89234757C700DA5227 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
-		A7466D8D23479D5100DA5227 /* ImageDownloaderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloaderProtocol.swift; sourceTree = "<group>"; };
 		FA0EBB7FA8399740A1B8039D /* Pods_Providers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Providers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD89EBC172A275065B756352 /* Pods-Providers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Providers.debug.xcconfig"; path = "Target Support Files/Pods-Providers/Pods-Providers.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,7 +201,6 @@
 		A7466D7C2346135100DA5227 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				A7466D8D23479D5100DA5227 /* ImageDownloaderProtocol.swift */,
 				A7466D7D2346138D00DA5227 /* ProvidersViewModelProtocol.swift */,
 				A7466D85234741ED00DA5227 /* NetworkServiceProtocol.swift */,
 			);
@@ -342,7 +339,6 @@
 				A7466D4D2345E16E00DA5227 /* AppDelegate.swift in Sources */,
 				A7466D7E2346138D00DA5227 /* ProvidersViewModelProtocol.swift in Sources */,
 				A7466D7B2346096900DA5227 /* CardsCollectionViewCell.swift in Sources */,
-				A7466D8E23479D5100DA5227 /* ImageDownloaderProtocol.swift in Sources */,
 				A7466D88234756BB00DA5227 /* Currency.swift in Sources */,
 				A7466D8A234757C700DA5227 /* AppConstant.swift in Sources */,
 				A7466D86234741ED00DA5227 /* NetworkServiceProtocol.swift in Sources */,

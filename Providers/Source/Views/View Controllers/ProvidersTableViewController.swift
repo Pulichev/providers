@@ -14,7 +14,7 @@ class ProvidersTableViewController: UITableViewController {
     
     // MARK: - Private fields
     
-    private lazy var providersViewModel: ProvidersViewModelProtocol & ImageDownloaderProtocol = ProvidersViewModel()
+    private lazy var providersViewModel: ProvidersViewModelProtocol = ProvidersViewModel()
     
     private var disposeBag = DisposeBag()
     
@@ -25,27 +25,6 @@ class ProvidersTableViewController: UITableViewController {
         super.viewDidLoad()
         // Запрашиваем данные о провайдерах
         providersViewModel.getProviders()
-        
-        // Подписываемся на возможные ответы от сервера
-        addImageDataObserver()
-        addErrorObserver()
-    }
-    
-    
-    // MARK: - Observers
-    
-    private func addImageDataObserver() {
-        providersViewModel
-            .imageData
-            .asObserver()
-            .subscribe(onNext: { [weak self] (imageData) in
-                
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    private func addErrorObserver() {
-        
     }
     
 
@@ -89,16 +68,6 @@ extension ProvidersTableViewController: UICollectionViewDataSource, UICollection
             // Установка значений кода и кредитов
             cell.setup(card: currentCard)
         }
-        
-//        cell.setup(image: providersViewModel.downloadImage { data in
-//            return data
-//        })
-//        if let logoData = providersViewModel.downloadProviderLogo() {
-//            if let logo = UIImage(data: logoData) {
-//                // Установка логотипа в ячейку
-//                cell.setup(image: logo)
-//            }
-//        }ы
         
         return cell
     }

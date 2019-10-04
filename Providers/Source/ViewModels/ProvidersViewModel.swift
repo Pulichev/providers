@@ -37,15 +37,6 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     var networkService: NetworkServiceProtocol = AlamofireNetworkService()
     
     
-    // MARK: - Reactive properties
-    
-    /// Данные по картинке с логотипом провайдера
-    var imageData = PublishSubject<Data>()
-    
-    /// Параметр, информирующий об ошибке от сервера
-    var error = PublishSubject<String>()
-    
-    
     
     // MARK: - Public methods
     
@@ -87,69 +78,16 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     /// Загрузить логотипы провайдеров в карточках
     private func downloadCardImages() {
         for provider in providers {
-            for var card in provider.giftCards {
+            for card in provider.giftCards {
                 guard let url = URL(string: card.imageURL) else { return }
                 do {
                     card.imageData = try Data(contentsOf: url)
-                    print("New image data for \(card.id)")
                 }
                 catch let error {
                     print(error.localizedDescription)
                 }
             }
         }
-        
-        
-//        providers.forEach {
-//            $0.giftCards.forEach {
-//                guard let url = URL(string: $0.imageURL) else { return }
-//                $0.imageData = Data(contentsOf: url)
-//            }
-//        }
     }
     
-}
-
-extension ProvidersViewModel: ImageDownloaderProtocol {
-    
-    
-    // MARK: - Private properties
-    
-    private var serverErrorDescription: String {
-        return "Application could not received data from server."
-    }
-    
-    
-    // MARK: - Public methods
-    
-    func downloadImage(completionHandler: @escaping (Data) -> (Data)) {
-        guard let card = currentCard else { return }
-        guard let url = URL(string: card.imageURL) else { return }
-        
-        networkService.sendRequest(url: url) { [weak self] (data, error) in
-            if let error = error {
-                self?.serverErrorHandler(error: error)
-                return
-            }
-            
-            if let data = data {
-                completionHandler(data)
-                self?.serverResponseHandler(data: data)
-            }
-        }
-    }
-    
-    
-    // MARK: - Server Response Handler
-    
-    private func serverResponseHandler(data: Data) {
-        // Сообщаем всем подписчикам, что получили новую картинку
-        imageData.onNext(data)
-    }
-    
-    private func serverErrorHandler(error: Error) {
-        // Сообщаем всем подписчикам, что получили ошибку от сервера
-        self.error.onNext(serverErrorDescription)
-        print(error.localizedDescription)
-    }
 }
