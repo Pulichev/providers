@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Provider: Codable {
+class Provider: Codable {
     
     // MARK: - Public properties
     
@@ -20,7 +20,7 @@ struct Provider: Codable {
     
     // MARK: - Initializers
     
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let contrainer = try decoder.container(keyedBy: ProviderCodeingKey.self)
         id = try contrainer.decode(Int.self, forKey: .id)
         title = try contrainer.decode(String.self, forKey: .title)

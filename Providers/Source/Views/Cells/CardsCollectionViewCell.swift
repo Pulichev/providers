@@ -11,6 +11,11 @@ import UIKit
 class CardsCollectionViewCell: UICollectionViewCell {
     
     
+    // MARK: - Fields
+    
+    var provider: Provider!
+    
+    
     // MARK: - Outlets
     
     @IBOutlet weak var providerImageView: UIImageView!
@@ -30,6 +35,22 @@ class CardsCollectionViewCell: UICollectionViewCell {
     func setup(card: Card) {
         codeLabel.text = String(card.codesCount)
         creditsLabel.text = String(card.credits)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds: 1500000)) {
+            print("HA-HA!")
+            if let imageData = card.imageData {
+//                var data: Data = Data()
+//                do {
+//                 data = try Data(contentsOf: URL(string: "http://g-ec2.images-amazon.com/images/G/01/social/api-share/amazon_logo_500500.png")!)
+//                } catch let error { print() }
+                print("HA!")
+                self.providerImageView.image = UIImage(data: imageData)
+            }
+        }
+        
+    }
+    
+    func setup(image: UIImage) {
+        providerImageView.image = image
     }
     
     

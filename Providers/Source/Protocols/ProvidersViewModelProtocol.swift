@@ -18,6 +18,10 @@ protocol ProvidersViewModelProtocol {
     /// Количество найденных провайдеров
     var providersCount: Int { get }
     
+    /// Количество найденных у провайдера карт
+    var cardsCount: Int { get }
+    
+    
     
     // MARK: - Functions
     
@@ -27,10 +31,7 @@ protocol ProvidersViewModelProtocol {
     /// Возращает требующегося провайдера по индексу
     func getProvider(with index: Int) -> Provider
     
-    /// Возвращает количество карт провайдера по индексу провайдера
-    func getCardsCount(in section: Int) -> Int
-    
     /// Возвращает карту провайдера по индексу провайдера
-    func getCard(in section: Int, with index: Int) -> Card
+    func getCard(with index: Int) -> Card?
     
 }

@@ -7,21 +7,47 @@
 //
 
 import UIKit
+import RxSwift
 
 class ProvidersTableViewController: UITableViewController {
     
     
     // MARK: - Private fields
     
-    private lazy var providersViewModel: ProvidersViewModelProtocol = ProvidersViewModel()
+    private lazy var providersViewModel: ProvidersViewModelProtocol & ImageDownloaderProtocol = ProvidersViewModel()
+    
+    private var disposeBag = DisposeBag()
     
     
     // MARK: - View Controller Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Запрашиваем данные о провайдерах
         providersViewModel.getProviders()
+        
+        // Подписываемся на возможные ответы от сервера
+        addImageDataObserver()
+        addErrorObserver()
     }
+    
+    
+    // MARK: - Observers
+    
+    private func addImageDataObserver() {
+        providersViewModel
+            .imageData
+            .asObserver()
+            .subscribe(onNext: { [weak self] (imageData) in
+                
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func addErrorObserver() {
+        
+    }
+    
 
     
     // MARK: - Table view data source
@@ -38,7 +64,7 @@ class ProvidersTableViewController: UITableViewController {
         }
 
         let currentProvider = providersViewModel.getProvider(with: indexPath.row)
-        cell.setup(provider: currentProvider, collectionViewDataSourceDelegate: self)
+        cell.setup(provider: currentProvider)
         return cell
     }
 
@@ -50,7 +76,7 @@ extension ProvidersTableViewController: UICollectionViewDataSource, UICollection
     // MARK: - Collection view data source
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return providersViewModel.getCardsCount(in: section)
+        return providersViewModel.cardsCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -59,8 +85,21 @@ extension ProvidersTableViewController: UICollectionViewDataSource, UICollection
             fatalError("CardsCollectionViewCell cannot be created. The identifier in the storyboard may be incorrect.")
         }
         
-        let currentCard = providersViewModel.getCard(in: indexPath.section, with: indexPath.row)
-        cell.setup(card: currentCard)
+        if let currentCard = providersViewModel.getCard(with: indexPath.row) {
+            // Установка значений кода и кредитов
+            cell.setup(card: currentCard)
+        }
+        
+//        cell.setup(image: providersViewModel.downloadImage { data in
+//            return data
+//        })
+//        if let logoData = providersViewModel.downloadProviderLogo() {
+//            if let logo = UIImage(data: logoData) {
+//                // Установка логотипа в ячейку
+//                cell.setup(image: logo)
+//            }
+//        }ы
+        
         return cell
     }
     

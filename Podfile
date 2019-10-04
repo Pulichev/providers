@@ -9,5 +9,6 @@ target 'Providers' do
 
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Alamofire'
 
 end

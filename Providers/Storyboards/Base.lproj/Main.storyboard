@@ -10,7 +10,7 @@
         <!--Providers Table View Controller-->
         <scene sceneID="RPY-Y8-Q1a">
             <objects>
-                <tableViewController id="W7l-lV-iCL" customClass="ProvidersTableViewController" customModule="Providers" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="W7l-lV-iCL" customClass="ProvidersTableViewController" customModule="Providers" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="135" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JKV-Ln-Jqn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,23 +49,19 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="credits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Trc-D2-Ngw">
                                                                 <rect key="frame" x="0.0" y="47" width="150" height="34"/>
                                                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="34" id="AMO-E7-xCg"/>
-                                                                    <constraint firstAttribute="width" constant="135" id="Bq7-NP-Nr5"/>
-                                                                </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9LF-tw-k6J">
-                                                                <rect key="frame" x="0.0" y="8" width="96.5" height="31"/>
-                                                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <rect key="frame" x="10" y="8" width="60" height="31"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="96.5" id="RCY-Mh-cgA"/>
+                                                                    <constraint firstAttribute="height" constant="31" id="BTt-Ot-idV"/>
+                                                                    <constraint firstAttribute="width" constant="60" id="RCY-Mh-cgA"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsL-pi-whb">
-                                                                <rect key="frame" x="104.5" y="16" width="37.5" height="12"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsL-pi-whb">
+                                                                <rect key="frame" x="78" y="16" width="64" height="12"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -77,7 +73,7 @@
                                                             <constraint firstItem="tsL-pi-whb" firstAttribute="top" secondItem="Umh-Vq-gL1" secondAttribute="top" constant="16" id="WUQ-cL-LRv"/>
                                                             <constraint firstAttribute="bottom" secondItem="Trc-D2-Ngw" secondAttribute="bottom" id="dYK-dY-b9a"/>
                                                             <constraint firstItem="Trc-D2-Ngw" firstAttribute="top" secondItem="tsL-pi-whb" secondAttribute="bottom" constant="19" id="eBF-m8-1YH"/>
-                                                            <constraint firstItem="9LF-tw-k6J" firstAttribute="leading" secondItem="Umh-Vq-gL1" secondAttribute="leading" id="f3K-jb-ngT"/>
+                                                            <constraint firstItem="9LF-tw-k6J" firstAttribute="leading" secondItem="Umh-Vq-gL1" secondAttribute="leading" constant="10" id="f3K-jb-ngT"/>
                                                             <constraint firstItem="Trc-D2-Ngw" firstAttribute="top" secondItem="9LF-tw-k6J" secondAttribute="bottom" constant="8" id="pEH-9p-OwF"/>
                                                             <constraint firstAttribute="trailing" secondItem="Trc-D2-Ngw" secondAttribute="trailing" id="t25-4K-SAx"/>
                                                             <constraint firstAttribute="trailing" secondItem="tsL-pi-whb" secondAttribute="trailing" constant="8" id="trl-Nm-H9j"/>

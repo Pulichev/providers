@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Card: Codable {
+class Card: Codable {
     
     // MARK: - Properties
     
@@ -21,11 +21,12 @@ struct Card: Codable {
     var currency: String
     var description: String
     var redeemURL: String
+    var imageData: Data?
     
     
     // MARK: - Initializers
     
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CardCodingKey.self)
         id = try container.decode(Int.self, forKey: .id)
         featured = try container.decode(Bool.self, forKey: .featured)

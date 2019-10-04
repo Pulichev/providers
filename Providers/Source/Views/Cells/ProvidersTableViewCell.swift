@@ -26,11 +26,8 @@ class ProvidersTableViewCell: UITableViewCell {
     
     // MARK: - Public methods
     
-    func setup(provider: Provider, collectionViewDataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate) {
+    func setup(provider: Provider) {
         providerTitleLabel.text = provider.title
-        cardsCollectionView.dataSource = collectionViewDataSourceDelegate
-        cardsCollectionView.delegate = collectionViewDataSourceDelegate
-        cardsCollectionView.reloadData()
     }
     
 }

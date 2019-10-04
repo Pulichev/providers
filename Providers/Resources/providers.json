@@ -26,6 +26,17 @@
                   "currency": "USD",
                   "description": "Buy everything from Amazon. It's great.",
                   "redeem_url": "http://www.amazon.com"
+                },
+                {
+                  "id": 3,
+                  "featured": false,
+                  "title": "$30 Amazon.com",
+                  "credits": 1650,
+                  "image_url": "http://g-ec2.images-amazon.com/images/G/01/social/api-share/amazon_logo_500500.png",
+                  "codes_count": 33,
+                  "currency": "USD",
+                  "description": "Buy everything from Amazon. It's great.",
+                  "redeem_url": "http://www.amazon.com"
                 }
             ]
         },
@@ -38,7 +49,7 @@
                   "id": 101,
                   "featured": false,
                   "title": "$10 iTines Gift Card",
-                  "credits": 8500,
+                  "credits": 6500,
                   "image_url": "https://www.ixbt.com/short/images/2017/Dec/card-25_8_3.jpg",
                   "codes_count": 101,
                   "currency": "USD",
