@@ -54,8 +54,21 @@ extension ProvidersTableViewController: UICollectionViewDataSource, UICollection
     
     // MARK: - Collection view data source
     
+    private func getProviderIDFromSuperview(of collectionView: UICollectionView) -> Int {
+        // Получаем с супервью идентификатор провайдера и проводим требующиеся операции с картами.
+        //
+        // Есть и другие варианты решения этой задачи - например, определять по нажатию пользователя на ячейку
+        // с помощью функционала UIResponder, но я считаю, что такой метод усложнит в данном случае, как разработку
+        // функционала, так и его поддержку.
+        guard let superViewCell = collectionView.superview?.superview as? ProvidersTableViewCell else {
+            fatalError("CollectionView is not superview of needed TableViewCell.")
+        }
+        return superViewCell.providerID
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return providersViewModel.cardsCount
+        let providerID = getProviderIDFromSuperview(of: collectionView)
+        return providersViewModel.getCardCount(by: providerID)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -64,7 +77,8 @@ extension ProvidersTableViewController: UICollectionViewDataSource, UICollection
             fatalError("CardsCollectionViewCell cannot be created. The identifier in the storyboard may be incorrect.")
         }
         
-        if let currentCard = providersViewModel.getCard(with: indexPath.row) {
+        let providerID = getProviderIDFromSuperview(of: collectionView)
+        if let currentCard = providersViewModel.getCard(by: indexPath.row, and: providerID) {
             // Установка значений кода и кредитов
             cell.setup(card: currentCard)
         }

@@ -11,6 +11,11 @@ import UIKit
 class ProvidersTableViewCell: UITableViewCell {
     
     
+    // MARK: - Public fields
+    
+    var providerID: Int = 0
+    
+    
     // MARK: - Outlets
 
     @IBOutlet weak var providerTitleLabel: UILabel!
@@ -27,6 +32,7 @@ class ProvidersTableViewCell: UITableViewCell {
     // MARK: - Public methods
     
     func setup(provider: Provider) {
+        providerID = provider.id
         providerTitleLabel.text = provider.title
     }
     

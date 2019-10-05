@@ -10,7 +10,7 @@ import Foundation
 
 class Card: Codable {
     
-    // MARK: - Properties
+    // MARK: - Codable properties
     
     var id: Int
     var featured: Bool
@@ -21,7 +21,13 @@ class Card: Codable {
     var currency: String
     var description: String
     var redeemURL: String
+    
+    // MARK: - Additional properties
+    
+    /// Параметр, хранящий данные по логотипу провайдера
     var imageData: Data?
+    /// Ссылка на провайдера. Помогает упростить работу при обновлении коллекции карт
+    unowned var provider: Provider!
     
     
     // MARK: - Initializers

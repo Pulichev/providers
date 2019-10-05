@@ -13,7 +13,7 @@
 		A7466D542345E16E00DA5227 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7466D522345E16E00DA5227 /* Main.storyboard */; };
 		A7466D562345E16F00DA5227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7466D552345E16F00DA5227 /* Assets.xcassets */; };
 		A7466D592345E16F00DA5227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7466D572345E16F00DA5227 /* LaunchScreen.storyboard */; };
-		A7466D6B2345E4E900DA5227 /* providers.json in Resources */ = {isa = PBXBuildFile; fileRef = A7466D6A2345E4E900DA5227 /* providers.json */; };
+		A7466D6B2345E4E900DA5227 /* bigdata.json in Resources */ = {isa = PBXBuildFile; fileRef = A7466D6A2345E4E900DA5227 /* bigdata.json */; };
 		A7466D6D2345EAD500DA5227 /* ProvidersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D6C2345EAD500DA5227 /* ProvidersTableViewController.swift */; };
 		A7466D722345EC4C00DA5227 /* ProvidersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D712345EC4C00DA5227 /* ProvidersTableViewCell.swift */; };
 		A7466D742345F01300DA5227 /* ProvidersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D732345F01300DA5227 /* ProvidersViewModel.swift */; };
@@ -26,6 +26,7 @@
 		A7466D86234741ED00DA5227 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D85234741ED00DA5227 /* NetworkServiceProtocol.swift */; };
 		A7466D88234756BB00DA5227 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D87234756BB00DA5227 /* Currency.swift */; };
 		A7466D8A234757C700DA5227 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D89234757C700DA5227 /* AppConstant.swift */; };
+		A7466D902348725F00DA5227 /* providers.json in Resources */ = {isa = PBXBuildFile; fileRef = A7466D8F2348725F00DA5227 /* providers.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +38,7 @@
 		A7466D552345E16F00DA5227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7466D582345E16F00DA5227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7466D5A2345E16F00DA5227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A7466D6A2345E4E900DA5227 /* providers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = providers.json; sourceTree = "<group>"; };
+		A7466D6A2345E4E900DA5227 /* bigdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bigdata.json; sourceTree = "<group>"; };
 		A7466D6C2345EAD500DA5227 /* ProvidersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersTableViewController.swift; sourceTree = "<group>"; };
 		A7466D712345EC4C00DA5227 /* ProvidersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersTableViewCell.swift; sourceTree = "<group>"; };
 		A7466D732345F01300DA5227 /* ProvidersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersViewModel.swift; sourceTree = "<group>"; };
@@ -50,6 +51,7 @@
 		A7466D85234741ED00DA5227 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		A7466D87234756BB00DA5227 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		A7466D89234757C700DA5227 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
+		A7466D8F2348725F00DA5227 /* providers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = providers.json; sourceTree = "<group>"; };
 		FA0EBB7FA8399740A1B8039D /* Pods_Providers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Providers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD89EBC172A275065B756352 /* Pods-Providers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Providers.debug.xcconfig"; path = "Target Support Files/Pods-Providers/Pods-Providers.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,7 +125,8 @@
 		A7466D612345E1C800DA5227 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A7466D6A2345E4E900DA5227 /* providers.json */,
+				A7466D8F2348725F00DA5227 /* providers.json */,
+				A7466D6A2345E4E900DA5227 /* bigdata.json */,
 				A7466D552345E16F00DA5227 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -275,9 +278,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7466D6B2345E4E900DA5227 /* providers.json in Resources */,
+				A7466D6B2345E4E900DA5227 /* bigdata.json in Resources */,
 				A7466D592345E16F00DA5227 /* LaunchScreen.storyboard in Resources */,
 				A7466D562345E16F00DA5227 /* Assets.xcassets in Resources */,
+				A7466D902348725F00DA5227 /* providers.json in Resources */,
 				A7466D542345E16E00DA5227 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

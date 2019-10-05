@@ -18,17 +18,7 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     var providersCount: Int {
         return providers.count
     }
-    
-    var cardsCount: Int {
-        guard let provider = currentProvider else { return 0 }
-        return provider.giftCards.count
-    }
-    
-    /// Провайдер, с которым недавно работали
-    var currentProvider: Provider?
-    
-    /// Карта провайдера, с которой недавно работали
-    var currentCard: Card?
+
     
     
     // MARK: - Network properties
@@ -45,21 +35,27 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
         guard let providersStructure = try? JSONDecoder().decode(ProvidersStructure.self, from: json) else { return }
             
         providers = providersStructure.providers
-        downloadCardImages()
+        setCardSettings()
         print(providers)
+        providers.forEach {print( $0.giftCards)}
     }
     
     func getProvider(with index: Int) -> Provider {
-        let neededProvider = providers[index]
-        currentProvider = neededProvider
-        return neededProvider
+        return providers[index]
     }
     
-    func getCard(with index: Int) -> Card? {
-        guard let provider = currentProvider else { return nil }
-        let neededCard = provider.giftCards[index]
-        currentCard = neededCard
-        return neededCard
+    func getProvider(by id: Int) -> Provider? {
+        return providers.first(where: { $0.id == id })
+    }
+    
+    func getCard(by index: Int, and providerID: Int) -> Card? {
+        guard let provider = getProvider(by: providerID) else { return nil }
+        return provider.giftCards[index]
+    }
+    
+    func getCardCount(by providerID: Int) -> Int {
+        guard let provider = getProvider(by: providerID) else { return 0 }
+        return provider.giftCards.count
     }
     
     
@@ -69,24 +65,30 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     /// Чтобы "обкатать" выполнение, было решено добавить JSON в файл.
     /// Эта функция позволит получить этот файл и продолжить с ним работу.
     private func getJsonFromResources() -> Data? {
-        guard let path = Bundle.main.path(forResource: "providers", ofType: "json") else { return nil }
+        guard let path = Bundle.main.path(forResource: "bigdata", ofType: "json") else { return nil }
         
         do { return try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) }
         catch { fatalError("File providers.json was not found in \(path).") }
     }
     
-    /// Загрузить логотипы провайдеров в карточках
-    private func downloadCardImages() {
+    /// Установить дополнительные настройки для карты
+    private func setCardSettings() {
         for provider in providers {
             for card in provider.giftCards {
-                guard let url = URL(string: card.imageURL) else { return }
-                do {
-                    card.imageData = try Data(contentsOf: url)
-                }
-                catch let error {
-                    print(error.localizedDescription)
-                }
+                downloadImage(for: card)
+                card.provider = provider
             }
+        }
+    }
+    
+    /// Загрузить логотипы провайдеров в карточках
+    private func downloadImage(for card: Card) {
+        guard let url = URL(string: card.imageURL) else { return }
+        do {
+            card.imageData = try Data(contentsOf: url)
+        }
+        catch let error {
+            print(error.localizedDescription)
         }
     }
     
