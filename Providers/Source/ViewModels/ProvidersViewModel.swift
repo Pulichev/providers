@@ -20,11 +20,19 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     }
 
     
-    
     // MARK: - Network properties
     
     /// Сервис обменивающийся информацией с сервером
     var networkService: NetworkServiceProtocol = AlamofireNetworkService()
+    
+    
+    // MARK: - Reactive properties
+    
+    /// Данные по картинке с логотипом провайдера
+    var imageData = PublishSubject<Data>()
+
+    /// Параметр, информирующий об ошибке от сервера
+    var error = PublishSubject<String>()
     
     
     
@@ -35,9 +43,6 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
         guard let providersStructure = try? JSONDecoder().decode(ProvidersStructure.self, from: json) else { return }
             
         providers = providersStructure.providers
-        setCardSettings()
-        print(providers)
-        providers.forEach {print( $0.giftCards)}
     }
     
     func getProvider(with index: Int) -> Provider {
@@ -65,31 +70,54 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     /// Чтобы "обкатать" выполнение, было решено добавить JSON в файл.
     /// Эта функция позволит получить этот файл и продолжить с ним работу.
     private func getJsonFromResources() -> Data? {
-        guard let path = Bundle.main.path(forResource: "bigdata", ofType: "json") else { return nil }
+        guard let path = Bundle.main.path(forResource: "providers", ofType: "json") else { return nil }
         
         do { return try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) }
         catch { fatalError("File providers.json was not found in \(path).") }
     }
     
-    /// Установить дополнительные настройки для карты
-    private func setCardSettings() {
-        for provider in providers {
-            for card in provider.giftCards {
-                downloadImage(for: card)
-                card.provider = provider
+}
+
+
+extension ProvidersViewModel: ImageDownloaderProtocol {
+    
+    
+    // MARK: - Private properties
+    
+    private var serverErrorDescription: String {
+        return "Application could not received data from server."
+    }
+    
+    
+    // MARK: - Public methods
+    
+    func downloadImage(for model: ImageableModelProtocol) {
+        guard let url = URL(string: model.imageURL) else { return }
+        
+        networkService.sendRequest(url: url) { [weak self] (data, error) in
+            if let error = error {
+                self?.serverErrorHandler(error: error)
+                return
+            }
+            
+            if let data = data {
+                self?.serverResponseHandler(data: data)
             }
         }
     }
     
-    /// Загрузить логотипы провайдеров в карточках
-    private func downloadImage(for card: Card) {
-        guard let url = URL(string: card.imageURL) else { return }
-        do {
-            card.imageData = try Data(contentsOf: url)
-        }
-        catch let error {
-            print(error.localizedDescription)
-        }
+    
+    // MARK: - Server Response Handler
+    
+    private func serverResponseHandler(data: Data) {
+        // Сообщаем всем подписчикам, что получили новую картинку
+        imageData.onNext(data)
     }
     
+    private func serverErrorHandler(error: Error) {
+        // Сообщаем всем подписчикам, что получили ошибку от сервера
+        self.error.onNext(serverErrorDescription)
+        self.error.onCompleted()
+        print(error.localizedDescription)
+    }
 }

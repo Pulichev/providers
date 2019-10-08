@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Card: Codable {
+class Card: Codable, ImageableModelProtocol {
     
     // MARK: - Codable properties
     
@@ -26,8 +26,6 @@ class Card: Codable {
     
     /// Параметр, хранящий данные по логотипу провайдера
     var imageData: Data?
-    /// Ссылка на провайдера. Помогает упростить работу при обновлении коллекции карт
-    unowned var provider: Provider!
     
     
     // MARK: - Initializers

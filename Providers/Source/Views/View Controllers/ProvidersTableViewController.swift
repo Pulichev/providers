@@ -8,15 +8,17 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class ProvidersTableViewController: UITableViewController {
     
     
     // MARK: - Private fields
     
-    private lazy var providersViewModel: ProvidersViewModelProtocol = ProvidersViewModel()
+    private lazy var providersViewModel: ProvidersViewModelProtocol & ImageDownloaderProtocol = ProvidersViewModel()
     
     private var disposeBag = DisposeBag()
+    
     
     
     // MARK: - View Controller Lifecycle
@@ -25,6 +27,14 @@ class ProvidersTableViewController: UITableViewController {
         super.viewDidLoad()
         // Запрашиваем данные о провайдерах
         providersViewModel.getProviders()
+    }
+    
+    
+    
+    // MARK: - Reactive table view
+    
+    private func setupCellConfiguration() {
+        
     }
     
 
@@ -49,7 +59,8 @@ class ProvidersTableViewController: UITableViewController {
 
 }
 
-extension ProvidersTableViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+
+extension ProvidersTableViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     
     // MARK: - Collection view data source
@@ -79,11 +90,18 @@ extension ProvidersTableViewController: UICollectionViewDataSource, UICollection
         
         let providerID = getProviderIDFromSuperview(of: collectionView)
         if let currentCard = providersViewModel.getCard(by: indexPath.row, and: providerID) {
-            // Установка значений кода и кредитов
-            cell.setup(card: currentCard)
+            // Установка значений кода и кредитов,
+            // а также сервис, который можно использовать для загрузки изображений
+            cell.setup(card: currentCard, imageDownloaderService: providersViewModel)
         }
         
         return cell
     }
     
+    
+    // MARK: - Collction view flow layout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 150, height: 80)
+    }
 }

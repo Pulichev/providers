@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import RxSwift
 
 class CardsCollectionViewCell: UICollectionViewCell {
     
     
     // MARK: - Fields
     
-    var provider: Provider!
+    private var disposeBag = DisposeBag()
+    
+    //var provider: Provider!
     
     
     // MARK: - Outlets
@@ -32,16 +35,11 @@ class CardsCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Public methods
     
-    func setup(card: Card) {
+    func setup(card: Card, imageDownloaderService service: ImageDownloaderProtocol) {
         codeLabel.text = String(card.codesCount)
         creditsLabel.text = String(card.credits)
-        if let imageData = card.imageData {
-            self.providerImageView.image = UIImage(data: imageData)
-        }
-    }
-    
-    func setup(image: UIImage) {
-        providerImageView.image = image
+        addObserverForLoadingImage(from: service)
+        service.downloadImage(for: card)
     }
     
     
@@ -52,5 +50,22 @@ class CardsCollectionViewCell: UICollectionViewCell {
         layer.borderWidth = 0.5
         layer.borderColor = UIColor.lightGray.cgColor
         layer.cornerRadius = 5
+    }
+    
+    
+    // MARK: - Observers
+    
+    private func addObserverForLoadingImage(from service: ImageDownloaderProtocol) {
+        print("Add new observer for cell with codes (\(codeLabel.text)) and credits (\(creditsLabel.text))")
+        
+        service
+            .imageData
+            .asObservable()
+            .subscribe(onNext: { [weak self] (data) in
+                print("New value for cell with codes (\(self?.codeLabel.text)) and credits (\(self?.creditsLabel.text))")
+                print("Data, bytes: \(data)")
+                self?.providerImageView.image = UIImage(data: data)
+            })
+            .disposed(by: disposeBag)
     }
 }

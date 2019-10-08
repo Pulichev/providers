@@ -16,7 +16,7 @@ class AlamofireNetworkService: NetworkServiceProtocol {
     func sendRequest(url: URL, responseHandler: @escaping (Data?, Error?) -> Void) {
         Alamofire
             .request(url)
-            .responseJSON { response in
+            .responseData { response in
                 
                 // Если не получилось получить ответ от сервера, то формируем ошибку
                 if let error = response.error {
@@ -24,7 +24,7 @@ class AlamofireNetworkService: NetworkServiceProtocol {
                     return
                 }
                 
-                // Если получилось полуить ответ от сервера, проверяем статус ответа
+                // Если получилось получить ответ от сервера, проверяем статус ответа
                 switch response.result {
                 case .success:
                     if let data = response.data {
