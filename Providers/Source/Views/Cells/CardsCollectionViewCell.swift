@@ -14,6 +14,7 @@ class CardsCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Fields
     
+    private var imageData = Observable<Data>.just(Data())
     private var disposeBag = DisposeBag()
     
     //var provider: Provider!
@@ -56,8 +57,18 @@ class CardsCollectionViewCell: UICollectionViewCell {
     // MARK: - Observers
     
     private func addObserverForLoadingImage(from service: ImageDownloaderProtocol) {
-        print("Add new observer for cell with codes (\(codeLabel.text)) and credits (\(creditsLabel.text))")
+//        print("Add new observer for cell with codes (\(codeLabel.text)) and credits (\(creditsLabel.text))")
         
+        //service.imageData.bind(to: providerImageView.rx.image
+        
+        
+//        imageData
+//            .bind(to: service.imageData.asObservable().subscribe(onNext: { [weak self] (data) in
+//                guard let imageView = self?.providerImageView else { return }
+//                imageView.image = UIImage(data: data)
+//            }))
+//            .disposed(by: disposeBag)
+//
         service
             .imageData
             .asObservable()

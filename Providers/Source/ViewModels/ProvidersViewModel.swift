@@ -7,16 +7,17 @@
 //
 
 import RxSwift
+import RxCocoa
 
-class ProvidersViewModel: ProvidersViewModelProtocol {
+class ProvidersViewModel: RxProvidersViewModelProtocol {
     
     
     // MARK: - Public properties
     
-    var providers = [Provider]()
+    var providers = BehaviorRelay(value: [Provider]()) // [Provider]()
     
     var providersCount: Int {
-        return providers.count
+        return providers.value.count
     }
 
     
@@ -42,15 +43,15 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
         guard let json = getJsonFromResources() else { return }
         guard let providersStructure = try? JSONDecoder().decode(ProvidersStructure.self, from: json) else { return }
             
-        providers = providersStructure.providers
+        providers.accept(providersStructure.providers)
     }
     
     func getProvider(with index: Int) -> Provider {
-        return providers[index]
+        return providers.value[index]
     }
     
     func getProvider(by id: Int) -> Provider? {
-        return providers.first(where: { $0.id == id })
+        return providers.value.first(where: { $0.id == id })
     }
     
     func getCard(by index: Int, and providerID: Int) -> Card? {

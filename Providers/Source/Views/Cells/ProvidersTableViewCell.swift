@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import RxSwift
 
 class ProvidersTableViewCell: UITableViewCell {
     
     
     // MARK: - Public fields
     
-    var providerID: Int = 0
+    //var providerID: Int = 0
+    private var cards: Observable<[Card]>!
+    private var disposeBag = DisposeBag()
     
     
     // MARK: - Outlets
@@ -31,9 +34,20 @@ class ProvidersTableViewCell: UITableViewCell {
     
     // MARK: - Public methods
     
-    func setup(provider: Provider) {
-        providerID = provider.id
+    func setup(provider: Provider, imageDownloaderService service: ImageDownloaderProtocol) {
+        //providerID = provider.id
         providerTitleLabel.text = provider.title
+        cards = Observable.from(optional: provider.giftCards)
+        setupConfiguration(with: service)
     }
     
+    
+    // MARK: - Private methods
+    
+    private func setupConfiguration(with service: ImageDownloaderProtocol) {
+        cards.bind(to: cardsCollectionView.rx.items(cellIdentifier: CardsCollectionViewCell.identifier, cellType: CardsCollectionViewCell.self)) {
+            row, card, cell in
+            cell.setup(card: card, imageDownloaderService: service)
+        }.disposed(by: disposeBag)
+    }
 }

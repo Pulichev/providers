@@ -14,7 +14,7 @@
 		A7466D562345E16F00DA5227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7466D552345E16F00DA5227 /* Assets.xcassets */; };
 		A7466D592345E16F00DA5227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7466D572345E16F00DA5227 /* LaunchScreen.storyboard */; };
 		A7466D6B2345E4E900DA5227 /* bigdata.json in Resources */ = {isa = PBXBuildFile; fileRef = A7466D6A2345E4E900DA5227 /* bigdata.json */; };
-		A7466D6D2345EAD500DA5227 /* ProvidersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D6C2345EAD500DA5227 /* ProvidersTableViewController.swift */; };
+		A7466D6D2345EAD500DA5227 /* ProvidersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D6C2345EAD500DA5227 /* ProvidersViewController.swift */; };
 		A7466D722345EC4C00DA5227 /* ProvidersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D712345EC4C00DA5227 /* ProvidersTableViewCell.swift */; };
 		A7466D742345F01300DA5227 /* ProvidersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D732345F01300DA5227 /* ProvidersViewModel.swift */; };
 		A7466D772345F0A700DA5227 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D762345F0A700DA5227 /* Provider.swift */; };
@@ -30,6 +30,7 @@
 		A7466D922348BC1700DA5227 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D912348BC1700DA5227 /* CardViewController.swift */; };
 		A7466D97234B2C7000DA5227 /* ImageDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D96234B2C7000DA5227 /* ImageDownloaderProtocol.swift */; };
 		A7466D99234B305500DA5227 /* ImageableModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D98234B305500DA5227 /* ImageableModelProtocol.swift */; };
+		A7466DC1234CDE0A00DA5227 /* RxProvidersViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466DC0234CDE0A00DA5227 /* RxProvidersViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +43,7 @@
 		A7466D582345E16F00DA5227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A7466D5A2345E16F00DA5227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7466D6A2345E4E900DA5227 /* bigdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bigdata.json; sourceTree = "<group>"; };
-		A7466D6C2345EAD500DA5227 /* ProvidersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersTableViewController.swift; sourceTree = "<group>"; };
+		A7466D6C2345EAD500DA5227 /* ProvidersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersViewController.swift; sourceTree = "<group>"; };
 		A7466D712345EC4C00DA5227 /* ProvidersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersTableViewCell.swift; sourceTree = "<group>"; };
 		A7466D732345F01300DA5227 /* ProvidersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersViewModel.swift; sourceTree = "<group>"; };
 		A7466D762345F0A700DA5227 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		A7466D912348BC1700DA5227 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		A7466D96234B2C7000DA5227 /* ImageDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderProtocol.swift; sourceTree = "<group>"; };
 		A7466D98234B305500DA5227 /* ImageableModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageableModelProtocol.swift; sourceTree = "<group>"; };
+		A7466DC0234CDE0A00DA5227 /* RxProvidersViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxProvidersViewModelProtocol.swift; sourceTree = "<group>"; };
 		FA0EBB7FA8399740A1B8039D /* Pods_Providers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Providers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD89EBC172A275065B756352 /* Pods-Providers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Providers.debug.xcconfig"; path = "Target Support Files/Pods-Providers/Pods-Providers.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,7 +195,7 @@
 		A7466D6E2345EC2100DA5227 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A7466D6C2345EAD500DA5227 /* ProvidersTableViewController.swift */,
+				A7466D6C2345EAD500DA5227 /* ProvidersViewController.swift */,
 				A7466D912348BC1700DA5227 /* CardViewController.swift */,
 			);
 			path = "View Controllers";
@@ -215,6 +217,7 @@
 				A7466D85234741ED00DA5227 /* NetworkServiceProtocol.swift */,
 				A7466D96234B2C7000DA5227 /* ImageDownloaderProtocol.swift */,
 				A7466D98234B305500DA5227 /* ImageableModelProtocol.swift */,
+				A7466DC0234CDE0A00DA5227 /* RxProvidersViewModelProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -347,7 +350,7 @@
 				A7466D83234741AB00DA5227 /* AlamofireNetworkService.swift in Sources */,
 				A7466D8023462DF100DA5227 /* ProvidersStructure.swift in Sources */,
 				A7466D722345EC4C00DA5227 /* ProvidersTableViewCell.swift in Sources */,
-				A7466D6D2345EAD500DA5227 /* ProvidersTableViewController.swift in Sources */,
+				A7466D6D2345EAD500DA5227 /* ProvidersViewController.swift in Sources */,
 				A7466D792345F0AE00DA5227 /* Card.swift in Sources */,
 				A7466D4D2345E16E00DA5227 /* AppDelegate.swift in Sources */,
 				A7466D7E2346138D00DA5227 /* ProvidersViewModelProtocol.swift in Sources */,
@@ -361,6 +364,7 @@
 				A7466D742345F01300DA5227 /* ProvidersViewModel.swift in Sources */,
 				A7466D772345F0A700DA5227 /* Provider.swift in Sources */,
 				A7466D4F2345E16E00DA5227 /* SceneDelegate.swift in Sources */,
+				A7466DC1234CDE0A00DA5227 /* RxProvidersViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
