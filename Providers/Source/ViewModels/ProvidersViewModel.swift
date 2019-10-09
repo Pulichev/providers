@@ -24,22 +24,28 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     // MARK: - Reactive properties
     
     var disposeBag = DisposeBag()
-
     
-    // MARK: - Network properties
     
-    /// Сервис обменивающийся информацией с сервером
-    var networkService: NetworkServiceProtocol = AlamofireNetworkService()
+    // MARK: - Resouces properties
     
+    // Для использования файлов в папке приложения Assets, выберете класс AssetsResourcesService.
+    // Для скачивания файлов с сервера - класс AlamofireResourceService.
+    //var resourceService: ResourceServiceProtocol = AssetsResourceService()
+    var resourceService: ResourceServiceProtocol = AlamofireResourceService()
     
     
     // MARK: - Public methods
     
     func getProviders() {
-        guard let json = getJsonFromResources() else { return }
-        guard let providersStructure = try? JSONDecoder().decode(ProvidersStructure.self, from: json) else { return }
-            
-        providers.accept(providersStructure.providers)
+        // Для сервиса AssetsResouceService:
+        // guard let url = AppConstant.urls.providersJson else { return }
+        // Для сервиса AlamofireResouceService:
+        let url = AppConstant.api.path
+        resourceService.loadDataFromResource(url: url) { [weak self] data in
+            guard let json = data else { return }
+            guard let providersStructure = try? JSONDecoder().decode(ProvidersStructure.self, from: json) else { return }
+            self?.providers.accept(providersStructure.providers)
+        }
     }
     
     func getProvider(with index: Int) -> Provider {
@@ -58,19 +64,6 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     func getCardCount(by providerID: Int) -> Int {
         guard let provider = getProvider(by: providerID) else { return 0 }
         return provider.giftCards.count
-    }
-    
-    
-    
-    // MARK: - Private methods
-    
-    /// Чтобы "обкатать" выполнение, было решено добавить JSON в файл.
-    /// Эта функция позволит получить этот файл и продолжить с ним работу.
-    private func getJsonFromResources() -> Data? {
-        guard let path = Bundle.main.path(forResource: "providers", ofType: "json") else { return nil }
-        
-        do { return try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) }
-        catch { fatalError("File providers.json was not found in \(path).") }
     }
     
 }
