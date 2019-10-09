@@ -76,19 +76,29 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
 }
 
 
-extension ProvidersViewModel: ImageDownloaderProtocol {
+extension ProvidersViewModel: CachableImageDownloaderProtocol {
 
     func downloadImage(url: String, completionHandler: @escaping (Data?) -> Void) {
+        // Проверка: загружалась ли картинка по указанному урл ранее?
+        if let cacheImage = Cache.instance[url] {
+            completionHandler(cacheImage)
+            return
+        }
+        
+        // Проверка: валидный ли урл был передан
         guard let url = URL(string: url) else {
             completionHandler(nil)
             return
         }
+        
+        // Реактивный запрос на сервер
         URLSession.shared.rx
             .response(request: URLRequest(url: url))
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { response, data in
                 switch response.statusCode {
                 case 200:
+                    Cache.instance[url.absoluteString] = data
                     completionHandler(data)
                 default:
                     completionHandler(nil)

@@ -14,4 +14,12 @@ struct AppConstant {
         
     }
     
+    struct segues {
+        static let toCardView: String = "toCardDescription"
+    }
+    
+    
+    struct urls {
+        static let noImagePlaceholder = "no-image-placeholder"
+    }
 }

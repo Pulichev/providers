@@ -10,8 +10,22 @@ import Foundation
 
 enum Currency: String {
     
+    
+    // MARK: - Cases
+    
     case dollars = "USD"
     
     case euro = "EUR"
     
+    
+    // MARK: - Functions
+    
+    func print() -> String {
+        switch self {
+        case .dollars:
+            return "$"
+        case .euro:
+            return "€"
+        }
+    }
 }

@@ -20,7 +20,7 @@ class ProvidersViewController: UIViewController {
     
     // MARK: - Private fields
     
-    private lazy var providersViewModel: ProvidersViewModelProtocol & ImageDownloaderProtocol = ProvidersViewModel()
+    private lazy var providersViewModel: ProvidersViewModelProtocol & CachableImageDownloaderProtocol = ProvidersViewModel()
     
     private var disposeBag = DisposeBag()
     
@@ -44,10 +44,39 @@ class ProvidersViewController: UIViewController {
         providersViewModel.providers
             .bind(to: providersTableView.rx.items(cellIdentifier: ProvidersTableViewCell.identifier,cellType: ProvidersTableViewCell.self)) {
                 [weak self] row, provider, cell in
-                guard let service = self?.providersViewModel else { return }
-                cell.setup(provider: provider, imageDownloaderService: service)
+                cell.setup(provider: provider)
+                self?.setupCollectionItemConfiguration(for: cell)
+                self?.setupCollectionItemSelected(for: cell, with: provider)
             }
             .disposed(by: disposeBag)
     }
+    
+    
+    // MARK: - Reactive collection view
+    
+    func setupCollectionItemConfiguration(for cell: ProvidersTableViewCell) {
+        cell.cards.bind(to: cell.cardsCollectionView.rx.items(cellIdentifier: CardsCollectionViewCell.identifier, cellType: CardsCollectionViewCell.self)) {
+            [weak self] row, card, cell in
+            guard let service = self?.providersViewModel else { return }
+            cell.setup(card: card, imageDownloaderService: service)
+        }.disposed(by: disposeBag)
+    }
+    
+    func setupCollectionItemSelected(for cell: ProvidersTableViewCell, with provider: Provider) {
+        cell.cardsCollectionView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
+            self?.performSegue(withIdentifier: AppConstant.segues.toCardView, sender: provider.giftCards[indexPath.row])
+        }).disposed(by: disposeBag)
+    }
 
+    
+    
+    // MARK: - Navigation methods
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == AppConstant.segues.toCardView else { return }
+        guard let cardViewController = segue.destination as? CardViewController else { return }
+        guard let chosenCard = sender as? Card else { return }
+        
+        cardViewController.card = chosenCard
+    }
 }

@@ -28,15 +28,13 @@ class CardsCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Public methods
     
-    func setup(card: Card, imageDownloaderService service: ImageDownloaderProtocol) {
-        codeLabel.text = String(card.codesCount)
-        creditsLabel.text = String(card.credits)
+    func setup(card: Card, imageDownloaderService service: CachableImageDownloaderProtocol) {
+        let currency: String = Currency(rawValue: card.currency)?.print() ?? String()
+        codeLabel.text = "\(currency)\(card.codesCount)"
+        creditsLabel.text = "\(currency)\(card.credits)"
         service.downloadImage(url: card.imageURL) { [weak self] data in
-            guard let data = data else {
-                self?.providerImageView.image = UIImage(named: "no-image-placeholder")
-                return
-            }
-            self?.providerImageView.image = UIImage(data: data)
+            let chosenImage = data != nil ? UIImage(data: data!) : UIImage(named: AppConstant.urls.noImagePlaceholder)
+            self?.providerImageView.image = chosenImage
         }
     }
     

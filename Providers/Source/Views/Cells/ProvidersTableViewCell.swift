@@ -14,8 +14,7 @@ class ProvidersTableViewCell: UITableViewCell {
     
     // MARK: - Public fields
     
-    //var providerID: Int = 0
-    private var cards: Observable<[Card]>!
+    var cards: Observable<[Card]>!
     private var disposeBag = DisposeBag()
     
     
@@ -34,8 +33,7 @@ class ProvidersTableViewCell: UITableViewCell {
     
     // MARK: - Public methods
     
-    func setup(provider: Provider, imageDownloaderService service: ImageDownloaderProtocol) {
-        //providerID = provider.id
+    func setup(provider: Provider) {
         providerTitleLabel.text = provider.title
         
         // Для каждой ячейке data source и delegate должны определяться собственные
@@ -43,16 +41,6 @@ class ProvidersTableViewCell: UITableViewCell {
         cardsCollectionView.dataSource = nil
         
         cards = Observable.from(optional: provider.giftCards)
-        setupConfiguration(with: service)
     }
     
-    
-    // MARK: - Private methods
-    
-    private func setupConfiguration(with service: ImageDownloaderProtocol) {
-        cards.bind(to: cardsCollectionView.rx.items(cellIdentifier: CardsCollectionViewCell.identifier, cellType: CardsCollectionViewCell.self)) {
-            row, card, cell in
-            cell.setup(card: card, imageDownloaderService: service)
-        }.disposed(by: disposeBag)
-    }
 }
