@@ -34,6 +34,7 @@
 		A7BD95BA234E3D7000BD49F7 /* AssetsResourceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD95B9234E3D7000BD49F7 /* AssetsResourceService.swift */; };
 		A7BD95BC234E3F6100BD49F7 /* AlamofireResourceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD95BB234E3F6100BD49F7 /* AlamofireResourceService.swift */; };
 		A7BD95BE234E72A400BD49F7 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD95BD234E72A400BD49F7 /* CardViewModel.swift */; };
+		A7BD95C0234E809900BD49F7 /* CardViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD95BF234E809900BD49F7 /* CardViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		A7BD95B9234E3D7000BD49F7 /* AssetsResourceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsResourceService.swift; sourceTree = "<group>"; };
 		A7BD95BB234E3F6100BD49F7 /* AlamofireResourceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireResourceService.swift; sourceTree = "<group>"; };
 		A7BD95BD234E72A400BD49F7 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		A7BD95BF234E809900BD49F7 /* CardViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModelProtocol.swift; sourceTree = "<group>"; };
 		FA0EBB7FA8399740A1B8039D /* Pods_Providers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Providers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD89EBC172A275065B756352 /* Pods-Providers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Providers.debug.xcconfig"; path = "Target Support Files/Pods-Providers/Pods-Providers.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,6 +226,7 @@
 				A7466D96234B2C7000DA5227 /* CachableImageDownloaderProtocol.swift */,
 				A7466DC0234CDE0A00DA5227 /* ProvidersViewModelProtocol.swift */,
 				A7BD95B7234E3D1000BD49F7 /* ResourceServiceProtocol.swift */,
+				A7BD95BF234E809900BD49F7 /* CardViewModelProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				A7466D8A234757C700DA5227 /* AppConstant.swift in Sources */,
 				A7466D86234741ED00DA5227 /* NetworkServiceProtocol.swift in Sources */,
 				A7466D97234B2C7000DA5227 /* CachableImageDownloaderProtocol.swift in Sources */,
+				A7BD95C0234E809900BD49F7 /* CardViewModelProtocol.swift in Sources */,
 				A7466D742345F01300DA5227 /* ProvidersViewModel.swift in Sources */,
 				A7BD95BA234E3D7000BD49F7 /* AssetsResourceService.swift in Sources */,
 				A7466D772345F0A700DA5227 /* Provider.swift in Sources */,
