@@ -9,31 +9,27 @@
 import RxSwift
 import RxCocoa
 
-class ProvidersViewModel: RxProvidersViewModelProtocol {
+class ProvidersViewModel: ProvidersViewModelProtocol {
     
     
     // MARK: - Public properties
     
-    var providers = BehaviorRelay(value: [Provider]()) // [Provider]()
+    var providers = BehaviorRelay(value: [Provider]())
     
     var providersCount: Int {
         return providers.value.count
     }
+    
+    
+    // MARK: - Reactive properties
+    
+    var disposeBag = DisposeBag()
 
     
     // MARK: - Network properties
     
     /// Сервис обменивающийся информацией с сервером
     var networkService: NetworkServiceProtocol = AlamofireNetworkService()
-    
-    
-    // MARK: - Reactive properties
-    
-    /// Данные по картинке с логотипом провайдера
-    var imageData = PublishSubject<Data>()
-
-    /// Параметр, информирующий об ошибке от сервера
-    var error = PublishSubject<String>()
     
     
     
@@ -81,44 +77,24 @@ class ProvidersViewModel: RxProvidersViewModelProtocol {
 
 
 extension ProvidersViewModel: ImageDownloaderProtocol {
-    
-    
-    // MARK: - Private properties
-    
-    private var serverErrorDescription: String {
-        return "Application could not received data from server."
-    }
-    
-    
-    // MARK: - Public methods
-    
-    func downloadImage(for model: ImageableModelProtocol) {
-        guard let url = URL(string: model.imageURL) else { return }
-        
-        networkService.sendRequest(url: url) { [weak self] (data, error) in
-            if let error = error {
-                self?.serverErrorHandler(error: error)
-                return
-            }
-            
-            if let data = data {
-                self?.serverResponseHandler(data: data)
-            }
+
+    func downloadImage(url: String, completionHandler: @escaping (Data?) -> Void) {
+        guard let url = URL(string: url) else {
+            completionHandler(nil)
+            return
         }
+        URLSession.shared.rx
+            .response(request: URLRequest(url: url))
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { response, data in
+                switch response.statusCode {
+                case 200:
+                    completionHandler(data)
+                default:
+                    completionHandler(nil)
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
-    
-    // MARK: - Server Response Handler
-    
-    private func serverResponseHandler(data: Data) {
-        // Сообщаем всем подписчикам, что получили новую картинку
-        imageData.onNext(data)
-    }
-    
-    private func serverErrorHandler(error: Error) {
-        // Сообщаем всем подписчикам, что получили ошибку от сервера
-        self.error.onNext(serverErrorDescription)
-        self.error.onCompleted()
-        print(error.localizedDescription)
-    }
 }

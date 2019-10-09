@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Card: Codable, ImageableModelProtocol {
+class Card: Codable {
     
     // MARK: - Codable properties
     

@@ -2,18 +2,18 @@
 //  ProvidersViewModelProtocol.swift
 //  Providers
 //
-//  Created by Victor Volnukhin on 03/10/2019.
+//  Created by Victor Volnukhin on 08/10/2019.
 //  Copyright © 2019 Victor Volnukhin. All rights reserved.
 //
 
-import Foundation
+import RxCocoa
 
 protocol ProvidersViewModelProtocol {
     
     
     // MARK: - Properties
     
-    var providers: [Provider] { get set }
+    var providers: BehaviorRelay<[Provider]> { get set }
     
     /// Количество найденных провайдеров
     var providersCount: Int { get }

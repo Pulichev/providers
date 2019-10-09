@@ -37,6 +37,11 @@ class ProvidersTableViewCell: UITableViewCell {
     func setup(provider: Provider, imageDownloaderService service: ImageDownloaderProtocol) {
         //providerID = provider.id
         providerTitleLabel.text = provider.title
+        
+        // Для каждой ячейке data source и delegate должны определяться собственные
+        cardsCollectionView.delegate = nil
+        cardsCollectionView.dataSource = nil
+        
         cards = Observable.from(optional: provider.giftCards)
         setupConfiguration(with: service)
     }

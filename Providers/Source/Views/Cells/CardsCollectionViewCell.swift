@@ -12,14 +12,6 @@ import RxSwift
 class CardsCollectionViewCell: UICollectionViewCell {
     
     
-    // MARK: - Fields
-    
-    private var imageData = Observable<Data>.just(Data())
-    private var disposeBag = DisposeBag()
-    
-    //var provider: Provider!
-    
-    
     // MARK: - Outlets
     
     @IBOutlet weak var providerImageView: UIImageView!
@@ -39,8 +31,13 @@ class CardsCollectionViewCell: UICollectionViewCell {
     func setup(card: Card, imageDownloaderService service: ImageDownloaderProtocol) {
         codeLabel.text = String(card.codesCount)
         creditsLabel.text = String(card.credits)
-        addObserverForLoadingImage(from: service)
-        service.downloadImage(for: card)
+        service.downloadImage(url: card.imageURL) { [weak self] data in
+            guard let data = data else {
+                self?.providerImageView.image = UIImage(named: "no-image-placeholder")
+                return
+            }
+            self?.providerImageView.image = UIImage(data: data)
+        }
     }
     
     
@@ -52,31 +49,5 @@ class CardsCollectionViewCell: UICollectionViewCell {
         layer.borderColor = UIColor.lightGray.cgColor
         layer.cornerRadius = 5
     }
-    
-    
-    // MARK: - Observers
-    
-    private func addObserverForLoadingImage(from service: ImageDownloaderProtocol) {
-//        print("Add new observer for cell with codes (\(codeLabel.text)) and credits (\(creditsLabel.text))")
-        
-        //service.imageData.bind(to: providerImageView.rx.image
-        
-        
-//        imageData
-//            .bind(to: service.imageData.asObservable().subscribe(onNext: { [weak self] (data) in
-//                guard let imageView = self?.providerImageView else { return }
-//                imageView.image = UIImage(data: data)
-//            }))
-//            .disposed(by: disposeBag)
-//
-        service
-            .imageData
-            .asObservable()
-            .subscribe(onNext: { [weak self] (data) in
-                print("New value for cell with codes (\(self?.codeLabel.text)) and credits (\(self?.creditsLabel.text))")
-                print("Data, bytes: \(data)")
-                self?.providerImageView.image = UIImage(data: data)
-            })
-            .disposed(by: disposeBag)
-    }
+
 }
