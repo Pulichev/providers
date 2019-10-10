@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Providers Json File Name</key>
+	<string>providers</string>
+	<key>Load Data from File</key>
+	<false/>
 	<key>Providers Data URL</key>
 	<string>http://mobile-hr.de02.agima.ru/exam/providers.json</string>
 	<key>NSAppTransportSecurity</key>

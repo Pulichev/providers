@@ -28,20 +28,15 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     
     // MARK: - Resouces properties
     
-    // Для использования файлов в папке приложения Assets, выберете класс AssetsResourcesService.
-    // Для скачивания файлов с сервера - класс AlamofireResourceService.
-    //var resourceService: ResourceServiceProtocol = AssetsResourceService()
-    var resourceService: ResourceServiceProtocol = AlamofireResourceService()
+    lazy var resourceService: ResourceServiceProtocol = chooseNeededResourceService()
     
     
     // MARK: - Public methods
     
     func getProviders() {
-        // Для сервиса AssetsResouceService:
-        // guard let url = AppConstant.urls.providersJson else { return }
-        // Для сервиса AlamofireResouceService:
-        let url = AppConstant.api.path
-        resourceService.loadDataFromResource(url: url) { [weak self] data in
+        // Можно выбрать загрузку данных из файла, указав в info.plist свойство "Load Data from File" как YES.
+        // Если это свойство "NO", то будет загружаться с сервера по указанной ссылке в свойстве "Providers Data URL".
+        resourceService.loadDataFromResource(url: AppConstant.api.path) { [weak self] data in
             guard let json = data else { return }
             guard let providersStructure = try? JSONDecoder().decode(ProvidersStructure.self, from: json) else { return }
             self?.providers.accept(providersStructure.providers)
@@ -64,6 +59,17 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     func getCardCount(by providerID: Int) -> Int {
         guard let provider = getProvider(by: providerID) else { return 0 }
         return provider.giftCards.count
+    }
+    
+    
+    
+    // MARK: - Private methods
+    
+    /// Функция выбора конкретного варианта загрзчика данных из ресурсов
+    private func chooseNeededResourceService() -> ResourceServiceProtocol {
+        // Для использования файлов в папке приложения Assets, выберете класс AssetsResourcesService.
+        // Для скачивания файлов с сервера - класс AlamofireResourceService.
+        return AppConstant.config.isLoadDataFromFile ? AssetsResourceService() : AlamofireResourceService()
     }
     
 }

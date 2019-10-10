@@ -32,7 +32,7 @@ class ProvidersViewController: UIViewController {
         super.viewDidLoad()
         // Запрашиваем данные о провайдерах
         providersViewModel.getProviders()
-        
+        // Настраиваем конфигурации ячеек
         setupProviderCellConfiguration()
     }
     
