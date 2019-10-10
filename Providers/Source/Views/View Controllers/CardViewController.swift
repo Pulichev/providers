@@ -18,6 +18,7 @@ class CardViewController: UIViewController {
     @IBOutlet weak var codesLabel: UILabel!
     @IBOutlet weak var creditsLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     
@@ -53,6 +54,7 @@ class CardViewController: UIViewController {
     }
     
     private func setupProviderLogoFromCache() {
+        activityIndicator.stopAnimating()
         guard let imageData = cardViewModel.imageData else {
             providerLogoImageView.image = UIImage(named: AppConstant.urls.noImagePlaceholder)
             return

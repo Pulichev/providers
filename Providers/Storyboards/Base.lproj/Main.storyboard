@@ -74,6 +74,10 @@
                                                                             <constraint firstAttribute="width" constant="85" id="K6p-Vg-p24"/>
                                                                         </constraints>
                                                                     </imageView>
+                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2M0-3F-cr7">
+                                                                        <rect key="frame" x="36" y="16" width="20" height="20"/>
+                                                                        <color key="color" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </activityIndicatorView>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstItem="XTk-Re-R8C" firstAttribute="top" secondItem="szS-ci-CXn" secondAttribute="top" constant="4" id="3bA-Vd-abY"/>
@@ -84,12 +88,15 @@
                                                                     <constraint firstAttribute="trailing" secondItem="XTk-Re-R8C" secondAttribute="trailing" constant="8" id="e2h-UA-lfj"/>
                                                                     <constraint firstItem="1Zz-QQ-bB2" firstAttribute="top" secondItem="szS-ci-CXn" secondAttribute="top" constant="4" id="gGo-Ib-RqY"/>
                                                                     <constraint firstAttribute="bottom" secondItem="0AE-Aw-Kne" secondAttribute="bottom" id="gHY-sF-0Ut"/>
+                                                                    <constraint firstItem="2M0-3F-cr7" firstAttribute="centerY" secondItem="1Zz-QQ-bB2" secondAttribute="centerY" id="nkY-nN-lf2"/>
+                                                                    <constraint firstItem="1Zz-QQ-bB2" firstAttribute="leading" secondItem="2M0-3F-cr7" secondAttribute="trailing" constant="-52" id="ucw-QR-i2K"/>
                                                                     <constraint firstItem="1Zz-QQ-bB2" firstAttribute="leading" secondItem="szS-ci-CXn" secondAttribute="leading" constant="4" id="xPb-iF-Qd8"/>
                                                                     <constraint firstAttribute="trailing" secondItem="0AE-Aw-Kne" secondAttribute="trailing" id="yPq-9G-JJo"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="150" height="80"/>
                                                             <connections>
+                                                                <outlet property="activityIndicator" destination="2M0-3F-cr7" id="maC-el-Fq8"/>
                                                                 <outlet property="codeLabel" destination="XTk-Re-R8C" id="gxh-wP-VCA"/>
                                                                 <outlet property="creditsLabel" destination="0AE-Aw-Kne" id="oeT-Ec-L4n"/>
                                                                 <outlet property="providerImageView" destination="1Zz-QQ-bB2" id="6Tt-Qd-QbU"/>
@@ -170,6 +177,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Rjq-hY-r72">
+                                        <rect key="frame" x="76" y="34.5" width="20" height="20"/>
+                                        <color key="color" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="nI9-VB-H56" firstAttribute="leading" secondItem="fKv-mX-Yhi" secondAttribute="trailing" id="0aD-FH-s8H"/>
@@ -178,12 +189,14 @@
                                     <constraint firstItem="Drg-nH-tpc" firstAttribute="leading" secondItem="Q13-IF-kFf" secondAttribute="leading" id="KSI-sH-3mA"/>
                                     <constraint firstAttribute="bottom" secondItem="Drg-nH-tpc" secondAttribute="bottom" id="OKD-nE-egR"/>
                                     <constraint firstItem="Drg-nH-tpc" firstAttribute="top" secondItem="fKv-mX-Yhi" secondAttribute="bottom" constant="5" id="TiC-6f-rJ5"/>
+                                    <constraint firstItem="fKv-mX-Yhi" firstAttribute="leading" secondItem="Rjq-hY-r72" secondAttribute="trailing" constant="-92" id="coW-h6-Zuh"/>
                                     <constraint firstAttribute="height" constant="150" id="jg2-g7-NG2"/>
                                     <constraint firstItem="nI9-VB-H56" firstAttribute="top" secondItem="Q13-IF-kFf" secondAttribute="top" id="lPg-TA-Ubc"/>
                                     <constraint firstItem="fKv-mX-Yhi" firstAttribute="leading" secondItem="Q13-IF-kFf" secondAttribute="leading" constant="4" id="n7G-2b-sLY"/>
                                     <constraint firstItem="fKv-mX-Yhi" firstAttribute="top" secondItem="Q13-IF-kFf" secondAttribute="top" constant="4" id="nzK-ED-AMK"/>
                                     <constraint firstAttribute="trailing" secondItem="nI9-VB-H56" secondAttribute="trailing" constant="8" id="oDX-hm-Bwt"/>
                                     <constraint firstItem="Drg-nH-tpc" firstAttribute="top" secondItem="nI9-VB-H56" secondAttribute="bottom" id="reC-He-9He"/>
+                                    <constraint firstItem="Rjq-hY-r72" firstAttribute="centerY" secondItem="fKv-mX-Yhi" secondAttribute="centerY" id="vue-yT-Min"/>
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u26-NL-fra">
@@ -208,6 +221,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Card" id="eKt-g2-Fbx"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Rjq-hY-r72" id="Whb-uo-hJ0"/>
                         <outlet property="cardView" destination="Q13-IF-kFf" id="T8y-nC-7xC"/>
                         <outlet property="codesLabel" destination="nI9-VB-H56" id="cZ9-9E-Lnk"/>
                         <outlet property="creditsLabel" destination="Drg-nH-tpc" id="Lol-b3-JG1"/>

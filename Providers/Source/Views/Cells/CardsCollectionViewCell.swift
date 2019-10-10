@@ -17,6 +17,7 @@ class CardsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var providerImageView: UIImageView!
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var creditsLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     // MARK: - Static properties
@@ -34,6 +35,7 @@ class CardsCollectionViewCell: UICollectionViewCell {
         creditsLabel.text = "\(currency)\(card.credits)"
         service.downloadImage(url: card.imageURL) { [weak self] data in
             let chosenImage = data != nil ? UIImage(data: data!) : UIImage(named: AppConstant.urls.noImagePlaceholder)
+            self?.activityIndicator.stopAnimating()
             self?.providerImageView.image = chosenImage
         }
     }
