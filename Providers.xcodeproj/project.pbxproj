@@ -22,7 +22,6 @@
 		A7466D8023462DF100DA5227 /* ProvidersStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D7F23462DF100DA5227 /* ProvidersStructure.swift */; };
 		A7466D83234741AB00DA5227 /* AlamofireNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D82234741AB00DA5227 /* AlamofireNetworkService.swift */; };
 		A7466D86234741ED00DA5227 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D85234741ED00DA5227 /* NetworkServiceProtocol.swift */; };
-		A7466D88234756BB00DA5227 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D87234756BB00DA5227 /* Currency.swift */; };
 		A7466D8A234757C700DA5227 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D89234757C700DA5227 /* AppConstant.swift */; };
 		A7466D902348725F00DA5227 /* providers.json in Resources */ = {isa = PBXBuildFile; fileRef = A7466D8F2348725F00DA5227 /* providers.json */; };
 		A7466D922348BC1700DA5227 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D912348BC1700DA5227 /* CardViewController.swift */; };
@@ -34,6 +33,7 @@
 		A76C15222357046800389A2F /* CardAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C15212357046800389A2F /* CardAssembly.swift */; };
 		A76C152423572AEC00389A2F /* RxNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C152323572AEC00389A2F /* RxNetworkService.swift */; };
 		A76C152723572FE200389A2F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C152623572FE200389A2F /* NetworkError.swift */; };
+		A76F64002357514B00AF8BA0 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76F63FF2357514B00AF8BA0 /* Int+Extension.swift */; };
 		A7BD95B6234E275100BD49F7 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD95B5234E275100BD49F7 /* Cache.swift */; };
 		A7BD95B8234E3D1000BD49F7 /* ResourceServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD95B7234E3D1000BD49F7 /* ResourceServiceProtocol.swift */; };
 		A7BD95BA234E3D7000BD49F7 /* AssetsResourceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD95B9234E3D7000BD49F7 /* AssetsResourceService.swift */; };
@@ -60,7 +60,6 @@
 		A7466D7F23462DF100DA5227 /* ProvidersStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersStructure.swift; sourceTree = "<group>"; };
 		A7466D82234741AB00DA5227 /* AlamofireNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetworkService.swift; sourceTree = "<group>"; };
 		A7466D85234741ED00DA5227 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
-		A7466D87234756BB00DA5227 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		A7466D89234757C700DA5227 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		A7466D8F2348725F00DA5227 /* providers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = providers.json; sourceTree = "<group>"; };
 		A7466D912348BC1700DA5227 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		A76C15212357046800389A2F /* CardAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAssembly.swift; sourceTree = "<group>"; };
 		A76C152323572AEC00389A2F /* RxNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNetworkService.swift; sourceTree = "<group>"; };
 		A76C152623572FE200389A2F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		A76F63FF2357514B00AF8BA0 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		A7BD95B5234E275100BD49F7 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		A7BD95B7234E3D1000BD49F7 /* ResourceServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceServiceProtocol.swift; sourceTree = "<group>"; };
 		A7BD95B9234E3D7000BD49F7 /* AssetsResourceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsResourceService.swift; sourceTree = "<group>"; };
@@ -184,6 +184,7 @@
 				A7466D632345E20500DA5227 /* Views */,
 				A7466D662345E22A00DA5227 /* Models */,
 				A7466D812347416700DA5227 /* Services */,
+				A76F63FE2357512A00AF8BA0 /* Extensions */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -194,7 +195,6 @@
 				A7466D762345F0A700DA5227 /* Provider.swift */,
 				A7466D782345F0AE00DA5227 /* Card.swift */,
 				A7466D7F23462DF100DA5227 /* ProvidersStructure.swift */,
-				A7466D87234756BB00DA5227 /* Currency.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -319,6 +319,14 @@
 				A76C152323572AEC00389A2F /* RxNetworkService.swift */,
 			);
 			path = Realization;
+			sourceTree = "<group>";
+		};
+		A76F63FE2357512A00AF8BA0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A76F63FF2357514B00AF8BA0 /* Int+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,12 +457,12 @@
 				A7466D4D2345E16E00DA5227 /* AppDelegate.swift in Sources */,
 				A7466D7B2346096900DA5227 /* CardsCollectionViewCell.swift in Sources */,
 				A7466D922348BC1700DA5227 /* CardViewController.swift in Sources */,
-				A7466D88234756BB00DA5227 /* Currency.swift in Sources */,
 				A7466D8A234757C700DA5227 /* AppConstant.swift in Sources */,
 				A76C152423572AEC00389A2F /* RxNetworkService.swift in Sources */,
 				A7466D86234741ED00DA5227 /* NetworkServiceProtocol.swift in Sources */,
 				A7466D97234B2C7000DA5227 /* CachableImageDownloaderProtocol.swift in Sources */,
 				A76C15182356FE0300389A2F /* ProvidersAssemblyProtocol.swift in Sources */,
+				A76F64002357514B00AF8BA0 /* Int+Extension.swift in Sources */,
 				A7BD95C0234E809900BD49F7 /* CardViewModelProtocol.swift in Sources */,
 				A76C151E2356FEB200389A2F /* ProvidersAssembly.swift in Sources */,
 				A7466D742345F01300DA5227 /* ProvidersViewModel.swift in Sources */,

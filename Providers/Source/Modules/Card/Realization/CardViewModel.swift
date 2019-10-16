@@ -40,11 +40,11 @@ class CardViewModel: CardViewModelProtocol {
     }
     
     var codes: String {
-        return "\(currency)\(card.codesCount)"
+        return card.codesCount.currency(card.currency) //"\(currency)\(card.codesCount)"
     }
     
     var credits: String {
-        return "\(currency)\(card.credits)"
+        return card.credits.currency(card.currency) //"\(currency)\(card.credits)"
     }
     
     var description: String {
@@ -54,7 +54,7 @@ class CardViewModel: CardViewModelProtocol {
     
     // MARK: - Private properties
     
-    private var currency: String {
-        return Currency(rawValue: card.currency)?.print() ?? String()
-    }
+//    private var currency: String {
+//        return Currency(rawValue: card.currency)?.print() ?? String()
+//    }
 }
