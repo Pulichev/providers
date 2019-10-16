@@ -27,34 +27,20 @@ class CardViewModel: CardViewModelProtocol {
     
     // MARK: - Public properties
     
-    var borderWidth: Float {
-        return 0.5
-    }
-    
-    var cornerRadius: Float {
-        return 5
-    }
-    
     var imageData: Data? {
         return Cache.instance[card.imageURL]
     }
     
     var codes: String {
-        return card.codesCount.currency(card.currency) //"\(currency)\(card.codesCount)"
+        return card.codesCount.currency(card.currency)
     }
     
     var credits: String {
-        return card.credits.currency(card.currency) //"\(currency)\(card.credits)"
+        return card.credits.currency(card.currency)
     }
     
     var description: String {
         return card.description
     }
-    
-    
-    // MARK: - Private properties
-    
-//    private var currency: String {
-//        return Currency(rawValue: card.currency)?.print() ?? String()
-//    }
+
 }

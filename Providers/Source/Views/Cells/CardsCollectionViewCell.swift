@@ -30,9 +30,8 @@ class CardsCollectionViewCell: UICollectionViewCell {
     // MARK: - Public methods
     
     func setup(card: Card, imageDownloaderService service: CachableImageDownloaderProtocol) {
-        //let currency: String = Currency(rawValue: card.currency)?.print() ?? String()
-        codeLabel.text = card.codesCount.currency(card.currency) //"\(currency)\(card.codesCount)"
-        creditsLabel.text = card.credits.currency(card.currency) //"\(currency)\(card.credits)"
+        codeLabel.text = card.codesCount.currency(card.currency)
+        creditsLabel.text = card.credits.currency(card.currency) 
         service.downloadImage(url: card.imageURL) { [weak self] data in
             let chosenImage = data != nil ? UIImage(data: data!) : UIImage(named: AppConstant.urls.noImagePlaceholder)
             self?.activityIndicator.stopAnimating()
