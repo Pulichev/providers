@@ -15,6 +15,7 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     // MARK: - Private fileds
     
     var resourceService: ResourceServiceProtocol
+    var networkService: NetworkServiceProtocol
     
     
     // MARK: - Public properties
@@ -34,8 +35,9 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     
     // MARK: - Initializers
     
-    required init(resourceService: ResourceServiceProtocol) {
+    required init(resourceService: ResourceServiceProtocol, networkService: NetworkServiceProtocol) {
         self.resourceService = resourceService
+        self.networkService = networkService
     }
     
     
@@ -88,20 +90,18 @@ extension ProvidersViewModel: CachableImageDownloaderProtocol {
             return
         }
         
-        // Реактивный запрос на сервер
-        URLSession.shared.rx
-            .response(request: URLRequest(url: url))
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { response, data in
-                switch response.statusCode {
-                case 200:
-                    Cache.instance[url.absoluteString] = data
-                    completionHandler(data)
-                default:
-                    completionHandler(nil)
-                }
-            })
-            .disposed(by: disposeBag)
+        // Запрашиваем на сервере изображение
+        networkService.sendRequest(url: url) { (data, error) in
+            if let error = error {
+                completionHandler(nil)
+                print(error.localizedDescription)
+                return
+            }
+            
+            Cache.instance[url.absoluteString] = data
+            completionHandler(data)
+        }
+        
     }
     
 }

@@ -14,8 +14,8 @@ class ProvidersAssembly: ProvidersAssemblyProtocol {
     // MARK: - Public methods
     
     func configure(with viewController: ProvidersViewController) {
-        let chosenResourceService: ResourceServiceProtocol = chooseNeededResourceService()
-        viewController.providersViewModel = ProvidersViewModel(resourceService: chosenResourceService)
+        viewController.providersViewModel =
+            ProvidersViewModel(resourceService: chooseNeededResourceService(), networkService: chooseNeededNetworkService())
     }
     
     
@@ -25,6 +25,14 @@ class ProvidersAssembly: ProvidersAssemblyProtocol {
     private func chooseNeededResourceService() -> ResourceServiceProtocol {
         // Для использования файлов в папке приложения Assets, выберете класс AssetsResourcesService.
         // Для скачивания файлов с сервера - класс AlamofireResourceService.
-        return AppConstant.config.isLoadDataFromFile ? AssetsResourceService() : AlamofireResourceService()
+        return AppConstant.config.isLoadDataFromFile ? AssetsResourceService() : NetworkResourceService(networkService: chooseNeededNetworkService())
     }
+    
+    private func chooseNeededNetworkService() -> NetworkServiceProtocol {
+        // Тут можно реализовать логику выбора сетевого протокола.
+        // В качестве примера: класс AlamofireNetworkService - c использованием соответствующего пода
+        return RxNetworkService() // AlamofireNetworkService()
+    }
+    
 }
+

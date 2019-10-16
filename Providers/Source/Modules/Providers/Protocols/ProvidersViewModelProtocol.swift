@@ -22,7 +22,7 @@ protocol ProvidersViewModelProtocol {
     
     // MARK: - Initializers
     
-    init(resourceService: ResourceServiceProtocol)
+    init(resourceService: ResourceServiceProtocol, networkService: NetworkServiceProtocol)
     
     
     
