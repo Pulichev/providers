@@ -6,7 +6,7 @@
 //  Copyright © 2019 Victor Volnukhin. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 class NetworkResourceService: ResourceServiceProtocol {
     
@@ -15,6 +15,8 @@ class NetworkResourceService: ResourceServiceProtocol {
     
     /// Сервис обменивающийся информацией с сервером
     var networkService: NetworkServiceProtocol
+    
+    var error: PublishSubject<Error> = PublishSubject<Error>()
     
     
     
@@ -31,13 +33,15 @@ class NetworkResourceService: ResourceServiceProtocol {
     func loadDataFromResource(url: String, completionHandler: @escaping (Data?) -> Void) {
         guard let url = URL(string: url) else {
             print("URL is not valid.")
+            error.onNext(NetworkError.invalidURL)
             completionHandler(nil)
             return
         }
         
-        networkService.sendRequest(url: url) { data, error in
+        networkService.sendRequest(url: url) { [weak self] data, error in
             guard error == nil else {
                 print("Server received an error.")
+                self?.error.onNext(NetworkError.dontDownload)
                 completionHandler(nil)
                 return
             }
@@ -47,6 +51,7 @@ class NetworkResourceService: ResourceServiceProtocol {
                 completionHandler(data)
             } else {
                 print("Data from server is nil.")
+                self?.error.onNext(NetworkError.dontDownload)
                 completionHandler(nil)
             }
         }

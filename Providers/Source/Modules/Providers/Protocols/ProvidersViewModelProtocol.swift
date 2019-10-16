@@ -6,17 +6,27 @@
 //  Copyright © 2019 Victor Volnukhin. All rights reserved.
 //
 
+import RxSwift
 import RxCocoa
 
 protocol ProvidersViewModelProtocol {
     
     
-    // MARK: - Properties
+    // MARK: - Providers properties
     
     var providers: BehaviorRelay<[Provider]> { get set }
     
     /// Количество найденных провайдеров
     var providersCount: Int { get }
+    
+    
+    // MARK: - Services
+    
+    var resourceService: ResourceServiceProtocol { get set }
+    
+    var networkService: NetworkServiceProtocol { get set }
+    
+    var errorOfService: PublishSubject<String> { get set }
     
     
     

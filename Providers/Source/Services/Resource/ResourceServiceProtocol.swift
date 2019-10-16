@@ -6,9 +6,12 @@
 //  Copyright © 2019 Victor Volnukhin. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 protocol ResourceServiceProtocol {
+    
+    
+    var error: PublishSubject<Error> { get set }
     
     
     // MARK: - Functions

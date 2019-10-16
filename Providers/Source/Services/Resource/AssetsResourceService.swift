@@ -6,9 +6,14 @@
 //  Copyright © 2019 Victor Volnukhin. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 class AssetsResourceService: ResourceServiceProtocol {
+    
+    
+    // MARK: - Public fields
+    
+    var error: PublishSubject<Error> = PublishSubject<Error>()
     
     
     // MARK: - Public methods
@@ -20,7 +25,9 @@ class AssetsResourceService: ResourceServiceProtocol {
             let data = try Data(contentsOf: URL(fileURLWithPath: url), options: .mappedIfSafe)
             completionHandler(data)
         }
-        catch { fatalError("File providers.json was not found in \(url).") }
+        catch {
+            self.error.onNext(error)
+        }
     }
     
 }

@@ -36,6 +36,8 @@ class ProvidersViewController: UIViewController {
         super.viewDidLoad()
         // Сконфигурируем настройки модуля
         providersAssembly.configure(with: self)
+        // Начинаем следить за возможными ошибками с сервисами
+        setupServicesErrorBinding()
         // Запрашиваем данные о провайдерах
         providersViewModel.getProviders()
         // Настраиваем конфигурации ячеек
@@ -57,6 +59,14 @@ class ProvidersViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    private func setupServicesErrorBinding() {
+        providersViewModel.errorOfService
+            .bind { [weak self] error in
+                self?.showNetworkErrorAlert(message: error)
+            }
+            .disposed(by: disposeBag)
+    }
+    
     
     // MARK: - Reactive collection view
     
@@ -72,6 +82,21 @@ class ProvidersViewController: UIViewController {
         cell.cardsCollectionView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             self?.performSegue(withIdentifier: AppConstant.segues.toCardView, sender: provider.giftCards[indexPath.row])
         }).disposed(by: disposeBag)
+    }
+    
+    
+    
+    // MARK: - Private methods
+    
+    private func showNetworkErrorAlert(message: String) {
+        // В зависимости от статуса серверного ответа выводимое сообщение может меняться
+        let alertController = UIAlertController(title: "Warning!", message: message, preferredStyle: .alert)
+       
+        let ok = UIAlertAction(title: "Try again", style: .default) { [weak self] _ in
+            self?.providersViewModel.getProviders()
+        }
+        alertController.addAction(ok)
+        present(alertController, animated: true, completion: nil)
     }
 
     

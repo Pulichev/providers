@@ -29,6 +29,8 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     
     // MARK: - Reactive properties
     
+    var errorOfService = PublishSubject<String>()
+    
     var disposeBag = DisposeBag()
     
     
@@ -38,6 +40,9 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     required init(resourceService: ResourceServiceProtocol, networkService: NetworkServiceProtocol) {
         self.resourceService = resourceService
         self.networkService = networkService
+        
+        // Подпишемся на возможные ошибки получения данных
+        setupNetworkErrorBinding()
     }
     
     
@@ -70,6 +75,32 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     func getCardCount(by providerID: Int) -> Int {
         guard let provider = getProvider(by: providerID) else { return 0 }
         return provider.giftCards.count
+    }
+    
+    
+    // MARK: - Private methods
+    
+    private func setupNetworkErrorBinding() {
+        resourceService.error
+            .bind { [weak self] error in
+                guard let `self` = self else { return }
+                let errorString = self.defineErrorMessage(error: error)
+                self.errorOfService.onNext(errorString)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func defineErrorMessage(error: Error) -> String {
+        if let customError = error as? NetworkError {
+            switch customError {
+            case .dontDownload:
+                return "Application cound not received data from server."
+            case .invalidURL:
+                return "Invalid URL"
+            }
+        } else {
+            return error.localizedDescription
+        }
     }
     
 }
