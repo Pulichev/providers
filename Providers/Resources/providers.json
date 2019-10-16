@@ -26,6 +26,17 @@
                   "currency": "USD",
                   "description": "Buy everything from Amazon. It's great.",
                   "redeem_url": "http://www.amazon.com"
+                },
+                {
+                  "id": 3,
+                  "featured": false,
+                  "title": "$30 Amazon.com",
+                  "credits": 1650,
+                  "image_url": "http://g-ec2.images-amazon.com/images/G/01/social/api-share/amazon_logo_500500.png",
+                  "codes_count": 33,
+                  "currency": "USD",
+                  "description": "Buy everything from Amazon. It's great.",
+                  "redeem_url": "http://www.amazon.com"
                 }
             ]
         },
@@ -38,11 +49,73 @@
                   "id": 101,
                   "featured": false,
                   "title": "$10 iTines Gift Card",
-                  "credits": 8500,
+                  "credits": 6500,
                   "image_url": "https://www.ixbt.com/short/images/2017/Dec/card-25_8_3.jpg",
                   "codes_count": 101,
                   "currency": "USD",
                   "description": "Buy everything from iTunes. It's great.",
+                  "redeem_url": "http://www.apple.com"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "App Store",
+            "image_url": "",
+            "gift_cards": [
+                {
+                  "id": 1,
+                  "featured": false,
+                  "title": "$10 App Store Gift Card",
+                  "credits": 3000,
+                  "image_url": "",
+                  "codes_count": 30,
+                  "currency": "USD",
+                  "description": "Buy everything from App Store. It's great.",
+                  "redeem_url": "http://www.apple.com"
+                },
+                {
+                  "id": 2,
+                  "featured": false,
+                  "title": "$10 App Store Gift Card",
+                  "credits": 5000,
+                  "image_url": "",
+                  "codes_count": 50,
+                  "currency": "USD",
+                  "description": "Buy everything from App Store. It's great.",
+                  "redeem_url": "http://www.apple.com"
+                },
+                {
+                  "id": 3,
+                  "featured": false,
+                  "title": "$10 App Store Gift Card",
+                  "credits": 10000,
+                  "image_url": "",
+                  "codes_count": 1000,
+                  "currency": "USD",
+                  "description": "Buy everything from App Store. It's great.",
+                  "redeem_url": "http://www.apple.com"
+                },
+                {
+                  "id": 4,
+                  "featured": false,
+                  "title": "$10 App Store Gift Card",
+                  "credits": 15000,
+                  "image_url": "",
+                  "codes_count": 1500,
+                  "currency": "USD",
+                  "description": "Buy everything from App Store. It's great.",
+                  "redeem_url": "http://www.apple.com"
+                },
+                {
+                  "id": 5,
+                  "featured": false,
+                  "title": "$10 App Store Gift Card",
+                  "credits": 2500000,
+                  "image_url": "",
+                  "codes_count": 300000,
+                  "currency": "USD",
+                  "description": "Buy everything from App Store. It's great.",
                   "redeem_url": "http://www.apple.com"
                 }
             ]
