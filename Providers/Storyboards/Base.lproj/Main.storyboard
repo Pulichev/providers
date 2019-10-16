@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bfu-Dd-Ukn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -11,7 +12,7 @@
         <!--Providers-->
         <scene sceneID="eHD-mh-Hi4">
             <objects>
-                <viewController id="HAb-Z3-eRc" customClass="ProvidersViewController" customModule="Providers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProvidersViewController" id="HAb-Z3-eRc" customClass="ProvidersViewController" customModule="Providers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y89-sK-l9h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,7 +75,7 @@
                                                                             <constraint firstAttribute="width" constant="85" id="K6p-Vg-p24"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2M0-3F-cr7">
+                                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2M0-3F-cr7">
                                                                         <rect key="frame" x="36" y="16" width="20" height="20"/>
                                                                         <color key="color" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </activityIndicatorView>
@@ -85,11 +86,11 @@
                                                                     <constraint firstItem="XTk-Re-R8C" firstAttribute="leading" secondItem="1Zz-QQ-bB2" secondAttribute="trailing" id="Q5y-GK-Dof"/>
                                                                     <constraint firstItem="0AE-Aw-Kne" firstAttribute="top" secondItem="1Zz-QQ-bB2" secondAttribute="bottom" constant="5" id="QA7-HJ-IlB"/>
                                                                     <constraint firstItem="0AE-Aw-Kne" firstAttribute="leading" secondItem="szS-ci-CXn" secondAttribute="leading" id="XNX-kg-gMW"/>
+                                                                    <constraint firstItem="1Zz-QQ-bB2" firstAttribute="leading" secondItem="2M0-3F-cr7" secondAttribute="trailing" constant="-52" id="cI0-mE-fPP"/>
                                                                     <constraint firstAttribute="trailing" secondItem="XTk-Re-R8C" secondAttribute="trailing" constant="8" id="e2h-UA-lfj"/>
                                                                     <constraint firstItem="1Zz-QQ-bB2" firstAttribute="top" secondItem="szS-ci-CXn" secondAttribute="top" constant="4" id="gGo-Ib-RqY"/>
                                                                     <constraint firstAttribute="bottom" secondItem="0AE-Aw-Kne" secondAttribute="bottom" id="gHY-sF-0Ut"/>
                                                                     <constraint firstItem="2M0-3F-cr7" firstAttribute="centerY" secondItem="1Zz-QQ-bB2" secondAttribute="centerY" id="nkY-nN-lf2"/>
-                                                                    <constraint firstItem="1Zz-QQ-bB2" firstAttribute="leading" secondItem="2M0-3F-cr7" secondAttribute="trailing" constant="-52" id="ucw-QR-i2K"/>
                                                                     <constraint firstItem="1Zz-QQ-bB2" firstAttribute="leading" secondItem="szS-ci-CXn" secondAttribute="leading" constant="4" id="xPb-iF-Qd8"/>
                                                                     <constraint firstAttribute="trailing" secondItem="0AE-Aw-Kne" secondAttribute="trailing" id="yPq-9G-JJo"/>
                                                                 </constraints>
@@ -147,11 +148,11 @@
             <objects>
                 <viewController id="wI3-11-CsQ" customClass="CardViewController" customModule="Providers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q06-Ux-qi3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q13-IF-kFf">
-                                <rect key="frame" x="57" y="165" width="300" height="150"/>
+                                <rect key="frame" x="57" y="25" width="300" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="credits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drg-nH-tpc">
                                         <rect key="frame" x="0.0" y="90" width="300" height="60"/>
@@ -177,7 +178,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Rjq-hY-r72">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Rjq-hY-r72">
                                         <rect key="frame" x="76" y="34.5" width="20" height="20"/>
                                         <color key="color" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </activityIndicatorView>
@@ -200,7 +201,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u26-NL-fra">
-                                <rect key="frame" x="30" y="355" width="354" height="521"/>
+                                <rect key="frame" x="30" y="215" width="354" height="607"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -232,28 +233,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmU-wU-8HQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="900.00000000000011" y="154.6875"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xAH-Ce-xQO">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bfu-Dd-Ukn" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="WAf-2R-nfr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="textShadowColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="HAb-Z3-eRc" kind="relationship" relationship="rootViewController" id="yfN-se-dcN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CqG-6o-J65" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-878.26086956521749" y="154.6875"/>
         </scene>
     </scenes>
 </document>

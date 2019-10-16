@@ -11,6 +11,12 @@ import UIKit
 class CardViewController: UIViewController {
     
     
+    // MARK: - Constants
+    
+    let cardBorderWidth: CGFloat = 0.5
+    let cardCornerRadius: CGFloat = 5
+    
+    
     // MARK: - Outlets
     
     @IBOutlet weak var cardView: UIView!
@@ -24,8 +30,8 @@ class CardViewController: UIViewController {
     
     // MARK: - Public fields
     
-    var card: Card!
-    private var cardViewModel: CardViewModelProtocol!
+    var cardAssembly: CardAssemblyProtocol!
+    var cardViewModel: CardViewModelProtocol!
     
     
     
@@ -33,7 +39,7 @@ class CardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cardViewModel = CardViewModel(card: card)
+        cardAssembly.configure(with: self)
         setupNeededProperties()
     }
 
@@ -48,9 +54,9 @@ class CardViewController: UIViewController {
     }
     
     private func setupCardViewProperties() {
-        cardView.layer.borderWidth = CGFloat(cardViewModel.borderWidth)
+        cardView.layer.borderWidth = cardBorderWidth
         cardView.layer.borderColor = UIColor.lightGray.cgColor
-        cardView.layer.cornerRadius = CGFloat(cardViewModel.cornerRadius)
+        cardView.layer.cornerRadius = cardCornerRadius
     }
     
     private func setupProviderLogoFromCache() {
@@ -65,6 +71,6 @@ class CardViewController: UIViewController {
     private func setupOutputLabelsProperties() {
         codesLabel.text = cardViewModel.codes
         creditsLabel.text = cardViewModel.credits
-        descriptionTextView.text = card.description
+        descriptionTextView.text = cardViewModel.description
     }
 }

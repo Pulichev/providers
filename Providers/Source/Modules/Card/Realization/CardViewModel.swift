@@ -47,6 +47,10 @@ class CardViewModel: CardViewModelProtocol {
         return "\(currency)\(card.credits)"
     }
     
+    var description: String {
+        return card.description
+    }
+    
     
     // MARK: - Private properties
     

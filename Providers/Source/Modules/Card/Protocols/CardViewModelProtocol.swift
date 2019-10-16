@@ -13,13 +13,10 @@ protocol CardViewModelProtocol {
     
     // MARK: - Properties
     
-    // UI:
-    var borderWidth: Float { get }
-    var cornerRadius: Float { get }
-    
     /// Загружается логотип провайдера из кэша
     var imageData: Data? { get }
     
     var codes: String { get }
     var credits: String { get }
+    var description: String { get }
 }

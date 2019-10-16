@@ -12,6 +12,11 @@ import RxCocoa
 class ProvidersViewModel: ProvidersViewModelProtocol {
     
     
+    // MARK: - Private fileds
+    
+    var resourceService: ResourceServiceProtocol
+    
+    
     // MARK: - Public properties
     
     var providers = BehaviorRelay(value: [Provider]())
@@ -26,9 +31,13 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     var disposeBag = DisposeBag()
     
     
-    // MARK: - Resouces properties
     
-    lazy var resourceService: ResourceServiceProtocol = chooseNeededResourceService()
+    // MARK: - Initializers
+    
+    required init(resourceService: ResourceServiceProtocol) {
+        self.resourceService = resourceService
+    }
+    
     
     
     // MARK: - Public methods
@@ -59,17 +68,6 @@ class ProvidersViewModel: ProvidersViewModelProtocol {
     func getCardCount(by providerID: Int) -> Int {
         guard let provider = getProvider(by: providerID) else { return 0 }
         return provider.giftCards.count
-    }
-    
-    
-    
-    // MARK: - Private methods
-    
-    /// Функция выбора конкретного варианта загрзчика данных из ресурсов
-    private func chooseNeededResourceService() -> ResourceServiceProtocol {
-        // Для использования файлов в папке приложения Assets, выберете класс AssetsResourcesService.
-        // Для скачивания файлов с сервера - класс AlamofireResourceService.
-        return AppConstant.config.isLoadDataFromFile ? AssetsResourceService() : AlamofireResourceService()
     }
     
 }

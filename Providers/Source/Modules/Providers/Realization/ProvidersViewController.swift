@@ -20,9 +20,13 @@ class ProvidersViewController: UIViewController {
     
     // MARK: - Private fields
     
-    private lazy var providersViewModel: ProvidersViewModelProtocol & CachableImageDownloaderProtocol = ProvidersViewModel()
-    
     private var disposeBag = DisposeBag()
+    
+    
+    // MARK: - Public fields
+    
+    var providersAssembly: ProvidersAssemblyProtocol!
+    var providersViewModel: (ProvidersViewModelProtocol & CachableImageDownloaderProtocol)!
     
     
     
@@ -30,6 +34,8 @@ class ProvidersViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Сконфигурируем настройки модуля
+        providersAssembly.configure(with: self)
         // Запрашиваем данные о провайдерах
         providersViewModel.getProviders()
         // Настраиваем конфигурации ячеек
@@ -77,6 +83,9 @@ class ProvidersViewController: UIViewController {
         guard let cardViewController = segue.destination as? CardViewController else { return }
         guard let chosenCard = sender as? Card else { return }
         
-        cardViewController.card = chosenCard
+        // Если не использовать один общий сториборд, то можно настроить еще один слой
+        // абстракции - Роутер, который бы передавал данные и запускал конфигурирование
+        // следующего вьюконтроллера
+        cardViewController.cardAssembly = CardAssembly(card: chosenCard)
     }
 }

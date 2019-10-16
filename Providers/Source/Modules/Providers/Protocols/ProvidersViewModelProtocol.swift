@@ -20,6 +20,12 @@ protocol ProvidersViewModelProtocol {
     
     
     
+    // MARK: - Initializers
+    
+    init(resourceService: ResourceServiceProtocol)
+    
+    
+    
     // MARK: - Functions
     
     /// Запросить всех провайдеров с сервера

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4C0225760CECA28A01D6CDE9 /* Pods_Providers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0EBB7FA8399740A1B8039D /* Pods_Providers.framework */; };
 		A7466D4D2345E16E00DA5227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D4C2345E16E00DA5227 /* AppDelegate.swift */; };
-		A7466D4F2345E16E00DA5227 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D4E2345E16E00DA5227 /* SceneDelegate.swift */; };
 		A7466D542345E16E00DA5227 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7466D522345E16E00DA5227 /* Main.storyboard */; };
 		A7466D562345E16F00DA5227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7466D552345E16F00DA5227 /* Assets.xcassets */; };
 		A7466D592345E16F00DA5227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7466D572345E16F00DA5227 /* LaunchScreen.storyboard */; };
@@ -29,6 +28,10 @@
 		A7466D922348BC1700DA5227 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D912348BC1700DA5227 /* CardViewController.swift */; };
 		A7466D97234B2C7000DA5227 /* CachableImageDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466D96234B2C7000DA5227 /* CachableImageDownloaderProtocol.swift */; };
 		A7466DC1234CDE0A00DA5227 /* ProvidersViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7466DC0234CDE0A00DA5227 /* ProvidersViewModelProtocol.swift */; };
+		A76C15182356FE0300389A2F /* ProvidersAssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C15172356FE0300389A2F /* ProvidersAssemblyProtocol.swift */; };
+		A76C151E2356FEB200389A2F /* ProvidersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C151D2356FEB200389A2F /* ProvidersAssembly.swift */; };
+		A76C15202357040D00389A2F /* CardAssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C151F2357040D00389A2F /* CardAssemblyProtocol.swift */; };
+		A76C15222357046800389A2F /* CardAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C15212357046800389A2F /* CardAssembly.swift */; };
 		A7BD95B6234E275100BD49F7 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD95B5234E275100BD49F7 /* Cache.swift */; };
 		A7BD95B8234E3D1000BD49F7 /* ResourceServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD95B7234E3D1000BD49F7 /* ResourceServiceProtocol.swift */; };
 		A7BD95BA234E3D7000BD49F7 /* AssetsResourceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD95B9234E3D7000BD49F7 /* AssetsResourceService.swift */; };
@@ -41,7 +44,6 @@
 		469E48D251DFACC7128D2355 /* Pods-Providers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Providers.release.xcconfig"; path = "Target Support Files/Pods-Providers/Pods-Providers.release.xcconfig"; sourceTree = "<group>"; };
 		A7466D492345E16E00DA5227 /* Providers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Providers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7466D4C2345E16E00DA5227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A7466D4E2345E16E00DA5227 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A7466D532345E16E00DA5227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7466D552345E16F00DA5227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7466D582345E16F00DA5227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +64,10 @@
 		A7466D912348BC1700DA5227 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		A7466D96234B2C7000DA5227 /* CachableImageDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachableImageDownloaderProtocol.swift; sourceTree = "<group>"; };
 		A7466DC0234CDE0A00DA5227 /* ProvidersViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersViewModelProtocol.swift; sourceTree = "<group>"; };
+		A76C15172356FE0300389A2F /* ProvidersAssemblyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersAssemblyProtocol.swift; sourceTree = "<group>"; };
+		A76C151D2356FEB200389A2F /* ProvidersAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersAssembly.swift; sourceTree = "<group>"; };
+		A76C151F2357040D00389A2F /* CardAssemblyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAssemblyProtocol.swift; sourceTree = "<group>"; };
+		A76C15212357046800389A2F /* CardAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAssembly.swift; sourceTree = "<group>"; };
 		A7BD95B5234E275100BD49F7 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		A7BD95B7234E3D1000BD49F7 /* ResourceServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceServiceProtocol.swift; sourceTree = "<group>"; };
 		A7BD95B9234E3D7000BD49F7 /* AssetsResourceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsResourceService.swift; sourceTree = "<group>"; };
@@ -160,7 +166,6 @@
 		A7466D632345E20500DA5227 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A7466D6E2345EC2100DA5227 /* View Controllers */,
 				A7466D6F2345EC2A00DA5227 /* Cells */,
 			);
 			path = Views;
@@ -170,24 +175,13 @@
 			isa = PBXGroup;
 			children = (
 				A7466D4C2345E16E00DA5227 /* AppDelegate.swift */,
-				A7466D4E2345E16E00DA5227 /* SceneDelegate.swift */,
 				A7466D89234757C700DA5227 /* AppConstant.swift */,
-				A7466D7C2346135100DA5227 /* Protocols */,
-				A7466D652345E22100DA5227 /* ViewModels */,
+				A76C15122356668700389A2F /* Modules */,
 				A7466D632345E20500DA5227 /* Views */,
 				A7466D662345E22A00DA5227 /* Models */,
 				A7466D812347416700DA5227 /* Services */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		A7466D652345E22100DA5227 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				A7466D732345F01300DA5227 /* ProvidersViewModel.swift */,
-				A7BD95BD234E72A400BD49F7 /* CardViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A7466D662345E22A00DA5227 /* Models */ = {
@@ -201,15 +195,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A7466D6E2345EC2100DA5227 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				A7466D6C2345EAD500DA5227 /* ProvidersViewController.swift */,
-				A7466D912348BC1700DA5227 /* CardViewController.swift */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
 		A7466D6F2345EC2A00DA5227 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,27 +204,107 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		A7466D7C2346135100DA5227 /* Protocols */ = {
+		A7466D812347416700DA5227 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A76C1515235667D400389A2F /* Cache */,
+				A76C1514235667AF00389A2F /* Network */,
+				A76C1516235667F200389A2F /* Resource */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A76C15112356666E00389A2F /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				A76C15192356FE0B00389A2F /* Protocols */,
+				A76C151A2356FE1400389A2F /* Realization */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		A76C15122356668700389A2F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A76C15112356666E00389A2F /* Providers */,
+				A76C15132356672E00389A2F /* Card */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		A76C15132356672E00389A2F /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				A76C151B2356FE1E00389A2F /* Protocols */,
+				A76C151C2356FE2500389A2F /* Realization */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		A76C1514235667AF00389A2F /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				A7466D85234741ED00DA5227 /* NetworkServiceProtocol.swift */,
+				A7466D82234741AB00DA5227 /* AlamofireNetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A76C1515235667D400389A2F /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				A7BD95B5234E275100BD49F7 /* Cache.swift */,
 				A7466D96234B2C7000DA5227 /* CachableImageDownloaderProtocol.swift */,
-				A7466DC0234CDE0A00DA5227 /* ProvidersViewModelProtocol.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		A76C1516235667F200389A2F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
 				A7BD95B7234E3D1000BD49F7 /* ResourceServiceProtocol.swift */,
-				A7BD95BF234E809900BD49F7 /* CardViewModelProtocol.swift */,
+				A7BD95B9234E3D7000BD49F7 /* AssetsResourceService.swift */,
+				A7BD95BB234E3F6100BD49F7 /* AlamofireResourceService.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		A76C15192356FE0B00389A2F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A7466DC0234CDE0A00DA5227 /* ProvidersViewModelProtocol.swift */,
+				A76C15172356FE0300389A2F /* ProvidersAssemblyProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		A7466D812347416700DA5227 /* Services */ = {
+		A76C151A2356FE1400389A2F /* Realization */ = {
 			isa = PBXGroup;
 			children = (
-				A7BD95B5234E275100BD49F7 /* Cache.swift */,
-				A7466D82234741AB00DA5227 /* AlamofireNetworkService.swift */,
-				A7BD95B9234E3D7000BD49F7 /* AssetsResourceService.swift */,
-				A7BD95BB234E3F6100BD49F7 /* AlamofireResourceService.swift */,
+				A7466D732345F01300DA5227 /* ProvidersViewModel.swift */,
+				A7466D6C2345EAD500DA5227 /* ProvidersViewController.swift */,
+				A76C151D2356FEB200389A2F /* ProvidersAssembly.swift */,
 			);
-			path = Services;
+			path = Realization;
+			sourceTree = "<group>";
+		};
+		A76C151B2356FE1E00389A2F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A7BD95BF234E809900BD49F7 /* CardViewModelProtocol.swift */,
+				A76C151F2357040D00389A2F /* CardAssemblyProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A76C151C2356FE2500389A2F /* Realization */ = {
+			isa = PBXGroup;
+			children = (
+				A7BD95BD234E72A400BD49F7 /* CardViewModel.swift */,
+				A7466D912348BC1700DA5227 /* CardViewController.swift */,
+				A76C15212357046800389A2F /* CardAssembly.swift */,
+			);
+			path = Realization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,14 +438,17 @@
 				A7466D8A234757C700DA5227 /* AppConstant.swift in Sources */,
 				A7466D86234741ED00DA5227 /* NetworkServiceProtocol.swift in Sources */,
 				A7466D97234B2C7000DA5227 /* CachableImageDownloaderProtocol.swift in Sources */,
+				A76C15182356FE0300389A2F /* ProvidersAssemblyProtocol.swift in Sources */,
 				A7BD95C0234E809900BD49F7 /* CardViewModelProtocol.swift in Sources */,
+				A76C151E2356FEB200389A2F /* ProvidersAssembly.swift in Sources */,
 				A7466D742345F01300DA5227 /* ProvidersViewModel.swift in Sources */,
 				A7BD95BA234E3D7000BD49F7 /* AssetsResourceService.swift in Sources */,
 				A7466D772345F0A700DA5227 /* Provider.swift in Sources */,
-				A7466D4F2345E16E00DA5227 /* SceneDelegate.swift in Sources */,
 				A7BD95BC234E3F6100BD49F7 /* AlamofireResourceService.swift in Sources */,
 				A7466DC1234CDE0A00DA5227 /* ProvidersViewModelProtocol.swift in Sources */,
 				A7BD95BE234E72A400BD49F7 /* CardViewModel.swift in Sources */,
+				A76C15202357040D00389A2F /* CardAssemblyProtocol.swift in Sources */,
+				A76C15222357046800389A2F /* CardAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +524,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -510,7 +578,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

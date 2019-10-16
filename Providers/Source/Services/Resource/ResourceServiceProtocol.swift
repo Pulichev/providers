@@ -6,7 +6,7 @@
 //  Copyright © 2019 Victor Volnukhin. All rights reserved.
 //
 
-import RxSwift
+import Foundation
 
 protocol ResourceServiceProtocol {
     
